@@ -550,8 +550,8 @@ Ukuran Matrix = (3, 2)
 <p>Matrix A(BxC) = Matrix (AxB)C</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix1</span> <span class="o">=</span> <span class="n">A</span><span class="o">@</span><span class="p">(</span><span class="n">B</span><span class="nd">@C</span><span class="p">)</span>
-<span class="n">Matrix2</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="nd">@B</span><span class="p">)</span><span class="nd">@C</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix1</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="p">(</span><span class="n">B</span> <span class="o">@</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">Matrix2</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">B</span><span class="p">)</span> <span class="o">@</span> <span class="n">C</span>
 <span class="n">Matrix1</span> <span class="o">==</span> <span class="n">Matrix2</span>
 </pre></div>
 </div>
@@ -568,9 +568,9 @@ Ukuran Matrix = (3, 2)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">Matrix_3</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="nd">@B</span><span class="p">)</span>
-<span class="n">Matrix_4</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">A</span><span class="p">)</span><span class="nd">@B</span>
-<span class="n">Matrix_5</span> <span class="o">=</span> <span class="n">A</span><span class="o">@</span><span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">B</span><span class="p">)</span>
+<span class="n">Matrix_3</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">Matrix_4</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span> <span class="o">@</span> <span class="n">B</span>
+<span class="n">Matrix_5</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Matrix_3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Matrix_4</span><span class="p">)</span>
@@ -714,7 +714,6 @@ ordo Matrix P adalah (2, 2)
 <span class="n">Matrix_2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
             <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
             <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
-<span class="n">Result</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Matrix_1 = </span><span class="si">{</span><span class="n">Matrix_1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
@@ -741,6 +740,52 @@ ordo Matrix P adalah (2, 2)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Matrix_1 = [[1, 3, 9], [3, -2, 6], [9, 4, 1]]
 
  Matrix_2 = [[1, 7, 5], [2, 4, 5], [1, -1, 4]]
+
+Hasil perkalian Matrix_1 dan Matrix 2 = [[16, 10, 56], [5, 7, 29], [18, 78, 69]]
+
+Pembuktian untuk Matrix A @ B =
+[[16 10 56]
+ [ 5  7 29]
+ [18 78 69]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ini yang menggunakan numpy array</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Matrix_1 = </span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Matrix_2 = </span><span class="se">\n</span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">multiply_matrix</span><span class="p">(</span><span class="n">matrix1</span><span class="p">,</span><span class="n">matrix2</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span> <span class="c1"># Menginisialisasikan dulu matrix dengan semua value 0</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+      <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)):</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">multiply_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hasil perkalian Matrix_1 dan Matrix 2 = </span><span class="si">{</span><span class="n">hasil</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pembuktian untuk Matrix A @ B =</span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="n">B</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Matrix_1 = 
+[[ 1  3  9]
+ [ 3 -2  6]
+ [ 9  4  1]]
+
+ Matrix_2 = 
+[[ 1  7  5]
+ [ 2  4  5]
+ [ 1 -1  4]]
 
 Hasil perkalian Matrix_1 dan Matrix 2 = [[16, 10, 56], [5, 7, 29], [18, 78, 69]]
 
