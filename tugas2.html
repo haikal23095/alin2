@@ -151,8 +151,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
   
 </a></div>
@@ -376,7 +376,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Aljabar Matrix</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-matrix">Pengertian Matrix:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-matrix">Membuat Matrix:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-matrix-di-python">Membuat Matrix di Python:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-matrix">Operasi Matrix</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-penjumlahan-matrix">Operasi Penjumlahan Matrix</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-perkalian-matrix">Operasi Perkalian Matrix</a></li>
@@ -385,11 +389,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-persamaan">Cek Persamaan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tranpose-matrix">Tranpose Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘@’</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘@’</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -413,11 +414,14 @@ document.write(`
   <li>Tranpose Matrix</li>
   </ul>
 <li>Buat program untuk mengkalikan Matrix A dengan Matrix B tidak menggunakan '@'</li>
-</ul><p>###Pengertian Matrix:</p>
+</ul><section id="pengertian-matrix">
+<h2>Pengertian Matrix:<a class="headerlink" href="#pengertian-matrix" title="Link to this heading">#</a></h2>
 <p>Matrix merupakan suatu kumpulan bilangan sejumlah m x n yang
 disusun menjadi m baris dan n kolom yang dapat dioperasikan (penjumlahan,pengurangan,dan perkalian). Matrix juga bisa menukar antara nilai baris dan kolomnya yang disebut Transpose Matrix.</p>
-<p>###Membuat Matrix:
-Contoh Matrix dibawah ini, ada matrix_A (3x3), matrix_B (3x3), matrix_C (3x2), dan matrix_D (3x3)</p>
+</section>
+<section id="membuat-matrix">
+<h2>Membuat Matrix:<a class="headerlink" href="#membuat-matrix" title="Link to this heading">#</a></h2>
+<p>Contoh Matrix dibawah ini, ada matrix_A (3x3), matrix_B (3x3), matrix_C (3x2), dan matrix_D (3x3)</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
 A=
@@ -458,8 +462,9 @@ D=
 \end{bmatrix}
 \end{align*}
 \)</span></p>
-<p>####Membuat Matrix di Python:
-Berikut  adalah cara Membuat Matrix di Python:</p>
+<section id="membuat-matrix-di-python">
+<h3>Membuat Matrix di Python:<a class="headerlink" href="#membuat-matrix-di-python" title="Link to this heading">#</a></h3>
+<p>Berikut  adalah cara Membuat Matrix di Python:</p>
 <ol class="arabic simple">
 <li><p>Import Library numpy simpan dalam variabel np</p></li>
 <li><p>Deklarasikan variabel untuk menyimpan matrix (disini saya menggunakan matrix dengan vaariabel A (3x3), B (3x3), C (3x2), dan D (3x3))</p></li>
@@ -514,6 +519,8 @@ Matrix D 3x3:
 </div>
 </div>
 </div>
+</section>
+</section>
 <section id="operasi-matrix">
 <h2>Operasi Matrix<a class="headerlink" href="#operasi-matrix" title="Link to this heading">#</a></h2>
 <p>Matrix juga bisa kita lakukan operasi yaitu Penjumlahan, Perkalian, dan Pengurangan</p>
@@ -790,9 +797,8 @@ ordo Matrix P adalah (2, 2)
 </div>
 </div>
 </section>
-</section>
 <section id="program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">
-<h1>Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘&#64;’<a class="headerlink" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan" title="Link to this heading">#</a></h1>
+<h2>Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘&#64;’<a class="headerlink" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix_1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span>
@@ -885,25 +891,7 @@ Pembuktian untuk Matrix A @ B =
 </div>
 </div>
 </div>
-<p>Matrix adalah ….</p>
-<p>Contoh Matrix dibawah matrix_A dan matrix_B</p>
-<p>\begin{align*}
-A=
-\begin{bmatrix}
-2&amp;-3&amp;4\
-1&amp;0&amp;-7
-\end{bmatrix}
-&amp;&amp;
-B=
-\begin{bmatrix}
-6&amp;2&amp;-4\
-3&amp;5&amp;2
-\end{bmatrix}
-\end{align*}</p>
-<p><span class="math notranslate nohighlight">\(\begin{align*}
-\matrixentry{A+B}{ij}&amp;=\matrixentry{A}{ij}+\matrixentry{B}{ij}
-&amp;&amp;1\leq i\leq m,\,1\leq j\leq n
-\end{align*}\)</span></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -961,7 +949,11 @@ B=
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Aljabar Matrix</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-matrix">Pengertian Matrix:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-matrix">Membuat Matrix:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-matrix-di-python">Membuat Matrix di Python:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-matrix">Operasi Matrix</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-penjumlahan-matrix">Operasi Penjumlahan Matrix</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-perkalian-matrix">Operasi Perkalian Matrix</a></li>
@@ -970,11 +962,8 @@ B=
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-persamaan">Cek Persamaan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tranpose-matrix">Tranpose Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘@’</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘@’</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
