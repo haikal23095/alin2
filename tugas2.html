@@ -57,10 +57,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
     <link rel="prev" title="Penyelesaian sistem linier" href="sistemliniar.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -172,7 +173,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to Haikal Jupyter Book
                 </a>
             </li>
         </ul>
@@ -375,16 +376,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Aljabar Matrix</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tidak-mengerjakan-tidak-boleh-masuk">Tidak mengerjakan tidak boleh masuk</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-penjumlahan-matrix">Operasi Penjumlahan Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-perkalian-matrix">Operasi Perkalian Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-pengurangan-matrix">Operasi Pengurangan Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-persamaan">Cek Persamaan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tranpose-matrix">Tranpose Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘@’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Aljabar Matrix</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-matrix">Operasi Matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-penjumlahan-matrix">Operasi Penjumlahan Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-perkalian-matrix">Operasi Perkalian Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-pengurangan-matrix">Operasi Pengurangan Matrix</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-persamaan">Cek Persamaan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tranpose-matrix">Tranpose Matrix</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘@’</a></li>
 </ul>
 
             </nav>
@@ -399,12 +402,9 @@ document.write(`
                   
   <section id="aljabar-matrix">
 <h1>Aljabar Matrix<a class="headerlink" href="#aljabar-matrix" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="tidak-mengerjakan-tidak-boleh-masuk">
-<h1>Tidak mengerjakan tidak boleh masuk<a class="headerlink" href="#tidak-mengerjakan-tidak-boleh-masuk" title="Link to this heading">#</a></h1>
 <ul>
 <li>Berikan pengertian apa itu Aljabar matrix</li>
-<li> Buatlah Matrix A(3x3),B(2x3),C(3x2)</li>
+<li> Buatlah Matrix A(3x3),B(2x3),C(3x2),D(3x3)</li>
 <li>Operasi Matrix</li>
   <ul>
   <li>Penjumlahan</li>
@@ -413,8 +413,59 @@ document.write(`
   <li>Tranpose Matrix</li>
   </ul>
 <li>Buat program untuk mengkalikan Matrix A dengan Matrix B tidak menggunakan '@'</li>
-</ul><p>Pengertian Matrix: Matrix merupakan suatu kumpulan bilangan sejumlah m x n yang
-disusun menjadi m baris dan n kolom.</p>
+</ul><p>###Pengertian Matrix:</p>
+<p>Matrix merupakan suatu kumpulan bilangan sejumlah m x n yang
+disusun menjadi m baris dan n kolom yang dapat dioperasikan (penjumlahan,pengurangan,dan perkalian). Matrix juga bisa menukar antara nilai baris dan kolomnya yang disebut Transpose Matrix.</p>
+<p>###Membuat Matrix:
+Contoh Matrix dibawah ini, ada matrix_A (3x3), matrix_B (3x3), matrix_C (3x2), dan matrix_D (3x3)</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{align*}
+A=
+\begin{bmatrix}
+1&amp;3&amp;9\\
+3&amp;-1&amp;6\\
+9&amp;4&amp;1
+\end{bmatrix}
+\end{align*}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{align*}
+B=
+\begin{bmatrix}
+1&amp;7&amp;5\\
+2&amp;4&amp;5\\
+1&amp;-1&amp;4
+\end{bmatrix}
+\end{align*}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{align*}
+C=
+\begin{bmatrix}
+3&amp;2\\
+-1&amp;2\\
+3&amp;-5
+\end{bmatrix}
+\end{align*}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{align*}
+D=
+\begin{bmatrix}
+2&amp;4&amp;8\\
+2&amp;-1&amp;5\\
+-8&amp;5&amp;2
+\end{bmatrix}
+\end{align*}
+\)</span></p>
+<p>####Membuat Matrix di Python:
+Berikut  adalah cara Membuat Matrix di Python:</p>
+<ol class="arabic simple">
+<li><p>Import Library numpy simpan dalam variabel np</p></li>
+<li><p>Deklarasikan variabel untuk menyimpan matrix (disini saya menggunakan matrix dengan vaariabel A (3x3), B (3x3), C (3x2), dan D (3x3))</p></li>
+<li><p>Lalu panggil variabel np diikuti dengan fungsi .array untuk membuat rangkaian matrix</p></li>
+<li><p>Lalu untuk menampilkan matrix kita gunakan fungsi print</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -429,9 +480,6 @@ disusun menjadi m baris dan n kolom.</p>
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span> <span class="c1"># matrix 3x3</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span> <span class="c1"># matrix 3x2</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span> <span class="c1"># matrix 3x3</span>
-<span class="n">E</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
-<span class="n">F</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">C</span>
 </pre></div>
 </div>
 </div>
@@ -466,41 +514,69 @@ Matrix D 3x3:
 </div>
 </div>
 </div>
+<section id="operasi-matrix">
+<h2>Operasi Matrix<a class="headerlink" href="#operasi-matrix" title="Link to this heading">#</a></h2>
+<p>Matrix juga bisa kita lakukan operasi yaitu Penjumlahan, Perkalian, dan Pengurangan</p>
 <section id="operasi-penjumlahan-matrix">
-<h2>Operasi Penjumlahan Matrix<a class="headerlink" href="#operasi-penjumlahan-matrix" title="Link to this heading">#</a></h2>
+<h3>Operasi Penjumlahan Matrix<a class="headerlink" href="#operasi-penjumlahan-matrix" title="Link to this heading">#</a></h3>
+<p>Operasi penjumlahan matrix adalah penjumlahan antara nilai nilai yang ada pada dua buah Matrix. Penjumlahan dapat dioperasikan secara langsung antara baris dan kolom yang sama.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matrix A+B</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A 3x3: </span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Matrix B 3x3: </span><span class="se">\n</span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">E</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix E =</span><span class="se">\n</span><span class="si">{</span><span class="n">E</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix E = Matrix A + Matrix B:</span><span class="se">\n</span><span class="si">{</span><span class="n">E</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ukuran Matrix = </span><span class="si">{</span><span class="n">E</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix E =
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix A 3x3: 
+[[ 1  3  9]
+ [ 3 -2  6]
+ [ 9  4  1]]
+ Matrix B 3x3: 
+[[ 1  7  5]
+ [ 2  4  5]
+ [ 1 -1  4]]
+Matrix E = Matrix A + Matrix B:
 [[ 2 10 14]
  [ 5  2 11]
  [10  3  5]]
+Ukuran Matrix = (3, 3)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="operasi-perkalian-matrix">
-<h2>Operasi Perkalian Matrix<a class="headerlink" href="#operasi-perkalian-matrix" title="Link to this heading">#</a></h2>
+<h3>Operasi Perkalian Matrix<a class="headerlink" href="#operasi-perkalian-matrix" title="Link to this heading">#</a></h3>
+<p>Operasi perkalian matrix ada dua macam</p>
+<ul class="simple">
+<li><p>perkalian Matrix dengan sebuah nilai tertentu. pada perkalian ini kita bisa operasikan langsung antara nilai nilai yang ada di dalam matrix dengan sebuah nilai tertentu.</p></li>
+<li><p>perkalian antara dua buah Matrix.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perkalian 2 * Matrix F =</span><span class="se">\n</span><span class="si">{</span><span class="n">F</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perkalian Matrix A dengan angka 2 yang menghasilkan matrix F</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A 3x3: </span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perkalian 2 * Matrix A =</span><span class="se">\n</span><span class="si">{</span><span class="n">F</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ukuran Matrix = </span><span class="si">{</span><span class="n">F</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Perkalian 2 * Matrix F =
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix A 3x3: 
+[[ 1  3  9]
+ [ 3 -2  6]
+ [ 9  4  1]]
+Perkalian 2 * Matrix A =
 [[ 2  6 18]
  [ 6 -4 12]
  [18  8  2]]
+Ukuran Matrix = (3, 3)
 </pre></div>
 </div>
 </div>
@@ -508,14 +584,24 @@ Matrix D 3x3:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matrix A x C</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A 3x3: </span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix C 3x2: </span><span class="se">\n</span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">C</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix G =</span><span class="se">\n</span><span class="si">{</span><span class="n">G</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix G = Matrix A @ Matrix C:</span><span class="se">\n</span><span class="si">{</span><span class="n">G</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ukuran Matrix = </span><span class="si">{</span><span class="n">G</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix G =
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix A 3x3: 
+[[ 1  3  9]
+ [ 3 -2  6]
+ [ 9  4  1]]
+Matrix C 3x2: 
+[[ 3  2]
+ [-1  2]
+ [ 3  5]]
+Matrix G = Matrix A @ Matrix C:
 [[27 53]
  [29 32]
  [26 31]]
@@ -526,7 +612,7 @@ Ukuran Matrix = (3, 2)
 </div>
 </section>
 <section id="operasi-pengurangan-matrix">
-<h2>Operasi Pengurangan Matrix<a class="headerlink" href="#operasi-pengurangan-matrix" title="Link to this heading">#</a></h2>
+<h3>Operasi Pengurangan Matrix<a class="headerlink" href="#operasi-pengurangan-matrix" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matrix A - B</span>
@@ -544,6 +630,7 @@ Ukuran Matrix = (3, 2)
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="cek-persamaan">
 <h2>Cek Persamaan<a class="headerlink" href="#cek-persamaan" title="Link to this heading">#</a></h2>
@@ -703,8 +790,9 @@ ordo Matrix P adalah (2, 2)
 </div>
 </div>
 </section>
+</section>
 <section id="program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">
-<h2>Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘&#64;’<a class="headerlink" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan" title="Link to this heading">#</a></h2>
+<h1>Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘&#64;’<a class="headerlink" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix_1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span>
@@ -797,7 +885,25 @@ Pembuktian untuk Matrix A @ B =
 </div>
 </div>
 </div>
-</section>
+<p>Matrix adalah ….</p>
+<p>Contoh Matrix dibawah matrix_A dan matrix_B</p>
+<p>\begin{align*}
+A=
+\begin{bmatrix}
+2&amp;-3&amp;4\
+1&amp;0&amp;-7
+\end{bmatrix}
+&amp;&amp;
+B=
+\begin{bmatrix}
+6&amp;2&amp;-4\
+3&amp;5&amp;2
+\end{bmatrix}
+\end{align*}</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+\matrixentry{A+B}{ij}&amp;=\matrixentry{A}{ij}+\matrixentry{B}{ij}
+&amp;&amp;1\leq i\leq m,\,1\leq j\leq n
+\end{align*}\)</span></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -839,15 +945,6 @@ Pembuktian untuk Matrix A @ B =
         <p class="prev-next-title">Penyelesaian sistem linier</p>
       </div>
     </a>
-    <a class="right-next"
-       href="markdown-notebooks.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notebooks with MyST Markdown</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -864,16 +961,18 @@ Pembuktian untuk Matrix A @ B =
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Aljabar Matrix</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tidak-mengerjakan-tidak-boleh-masuk">Tidak mengerjakan tidak boleh masuk</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-penjumlahan-matrix">Operasi Penjumlahan Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-perkalian-matrix">Operasi Perkalian Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-pengurangan-matrix">Operasi Pengurangan Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-persamaan">Cek Persamaan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tranpose-matrix">Tranpose Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘@’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Aljabar Matrix</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-matrix">Operasi Matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-penjumlahan-matrix">Operasi Penjumlahan Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-perkalian-matrix">Operasi Perkalian Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-pengurangan-matrix">Operasi Pengurangan Matrix</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-persamaan">Cek Persamaan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tranpose-matrix">Tranpose Matrix</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#program-untuk-mengkalikan-matrix-a-dengan-matrix-b-secara-manual-tidak-menggunakan">Program untuk mengkalikan Matrix A dengan Matrix B Secara Manual tidak menggunakan ‘@’</a></li>
 </ul>
 
   </nav></div>
