@@ -152,8 +152,8 @@
       
     
     
-    <img src="_static/logo.jpg" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
   
 </a></div>
@@ -376,6 +376,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian">Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss">Mendefinisikan fungsi operasi baris eliminasi GAUSS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss">Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-kurva-bidang">Implementasi dengan kurva bidang</a></li>
 </ul>
             </nav>
@@ -388,18 +393,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="penyelesaian-sistem-linier">
+  <section id="penyelesaian-sistem-linier">
 <h1>Penyelesaian sistem linier<a class="headerlink" href="#penyelesaian-sistem-linier" title="Link to this heading">#</a></h1>
-<p>Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</p>
-<p>Menggambar persamaan bidang dalam ruang 3 dimensi</p>
-<p>Pertama kita selesaikan persamaan berikut:</p>
+<ol class="arabic simple">
+<li><p>Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</p></li>
+<li><p>Menggambar persamaan bidang dalam ruang 3 dimensi</p></li>
+</ol>
+<section id="penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian">
+<h2>Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian<a class="headerlink" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian" title="Link to this heading">#</a></h2>
+<p>Kita mempunyai persamaan-persamaan berikut ini. Pertama kita selesaikan persamaan berikut dengan teknik eliminasi gausian:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 8x_1+9x_2+x_3 = 19\\
 x_1+2x_2+3x_3 = 9\\
 2x_1+x_2+x_3 = 5\
 \end{split}\]</div>
-<p>Berikut penyelesaian dari persamaan diatas</p>
+<p>Berikut penyelesaian dari persamaan diatas dengan menggunakan code python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -416,7 +425,8 @@ x_1+2x_2+3x_3 = 9\\
 </div>
 </div>
 </div>
-<p>##Mendefinisikan fungsi operasi baris eliminasi GAUSS</p>
+<section id="mendefinisikan-fungsi-operasi-baris-eliminasi-gauss">
+<h3>Mendefinisikan fungsi operasi baris eliminasi GAUSS<a class="headerlink" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>RowSwap()
 =&gt; Berfungsi untuk menukar posisi pada persamaan</p></li>
@@ -478,7 +488,10 @@ x_1+2x_2+3x_3 = 9\\
 </div>
 </div>
 </div>
-<p>##Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</p>
+</section>
+<section id="tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss">
+<h3>Tahapan penyelesaian dengan menggunakan Eliminasi Gauss<a class="headerlink" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss" title="Link to this heading">#</a></h3>
+<p>Kita panggil fungsi-fungsi di atas untuk membentuk segitiga atas dalam code berikut, sehingga hasilnya seperti berikut:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print Soal</span>
@@ -565,7 +578,7 @@ x_1+2x_2+3x_3 = 9\\
 </div>
 </div>
 </div>
-<p>Jawaban dari segitiga atas, sehingga diperoleh:</p>
+<p>Dari jawaban diatas, sehingga diperoleh:</p>
 <p>x1 = 1</p>
 <p>x2 = 1</p>
 <p>x3 = 2</p>
@@ -573,8 +586,11 @@ x_1+2x_2+3x_3 = 9\\
 <p>x + 2x + 3x = 9</p>
 <p>1 + 2.(1) + 3.(2) = 9</p>
 <p>9 = 9</p>
+</section>
+</section>
 <section id="implementasi-dengan-kurva-bidang">
 <h2>Implementasi dengan kurva bidang<a class="headerlink" href="#implementasi-dengan-kurva-bidang" title="Link to this heading">#</a></h2>
+<p>Dalam mengimplementasikan dalam bentuk kurva bidang kita bisa gunakan library matplotlib.pyplot dan mpl_toolkits.mplot3d seperti berikut:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -634,61 +650,6 @@ x_1+2x_2+3x_3 = 9\\
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/55665a78f4229f4edc5d12f9b61bc750947475742031f567f46a5c50842baed5.png" src="_images/55665a78f4229f4edc5d12f9b61bc750947475742031f567f46a5c50842baed5.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-
-<span class="c1"># Koefisien untuk masing-masing persamaan bidang</span>
-<span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">r1</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">19</span>
-<span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span>
-<span class="n">a3</span><span class="p">,</span> <span class="n">b3</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">r3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span>
-
-<span class="c1"># Buat data x, y</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-
-<span class="c1"># Buat grid x, y</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-<span class="c1"># Hitung nilai z sesuai dengan persamaan bidang</span>
-<span class="n">Z1</span> <span class="o">=</span> <span class="p">(</span><span class="n">r1</span> <span class="o">-</span> <span class="n">a1</span><span class="o">*</span><span class="n">X</span> <span class="o">-</span> <span class="n">b1</span><span class="o">*</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="n">c1</span>
-<span class="n">Z2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">-</span> <span class="n">a2</span><span class="o">*</span><span class="n">X</span> <span class="o">-</span> <span class="n">b2</span><span class="o">*</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="n">c2</span>
-<span class="n">Z3</span> <span class="o">=</span> <span class="p">(</span><span class="n">r3</span> <span class="o">-</span> <span class="n">a3</span><span class="o">*</span><span class="n">X</span> <span class="o">-</span> <span class="n">b3</span><span class="o">*</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="n">c3</span>
-
-<span class="c1"># Plot persamaan bidang dalam tiga dimensi</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-
-<span class="c1"># Plot bidang</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-
-<span class="c1"># Titik perpotongan</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">c1</span><span class="p">],</span> <span class="p">[</span><span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">c2</span><span class="p">],</span> <span class="p">[</span><span class="n">a3</span><span class="p">,</span> <span class="n">b3</span><span class="p">,</span> <span class="n">c3</span><span class="p">]])</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r3</span><span class="p">])</span>
-<span class="n">intersect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">intersect</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">intersect</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">intersect</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Titik Perpotongan&#39;</span><span class="p">)</span>
-
-<span class="c1"># Label sumbu</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
-
-<span class="c1"># Tampilkan legenda</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="c1"># Tampilkan plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/8e15298ae76ee55822cdddb13cf95f442d6078d2a66c94d52e10c212d2cff9ed.png" src="_images/8e15298ae76ee55822cdddb13cf95f442d6078d2a66c94d52e10c212d2cff9ed.png" />
 </div>
 </div>
 </section>
@@ -758,6 +719,11 @@ x_1+2x_2+3x_3 = 9\\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian">Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss">Mendefinisikan fungsi operasi baris eliminasi GAUSS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss">Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-kurva-bidang">Implementasi dengan kurva bidang</a></li>
 </ul>
   </nav></div>
