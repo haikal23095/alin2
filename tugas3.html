@@ -401,8 +401,134 @@ document.write(`
 <section id="id1">
 <h2>Matrix Invers<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Dalam aljabar linear matrix persegi A n x n disebut invertible (atau juga disebut nonsingular, nondegenerate, atau biasanya digunakan secara umum).</p>
-<p>Jika terdapat sebuah matrix persegi B n x n maka:
-<strong>AB = BA = I</strong>, dimana I adalah dinotasikan dengan matrix Identitas n x n dan perkalian yang digunakan adalah perkalian matrix biasa. Maka Matrix B secara unik ditentukan oleh Matrix A, dan disebut Inverse dari Matrix A. dinotasikan dengan <span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span>. Matrix inversion adalah proses untuk menemukan invers marix dari invertible Matrix. Lain halnya Matrix persegi yang tidak dapat dibalik disebut Matrix singular atau matrix tunggal atau degenerate</p>
+<p>Jika terdapat sebuah matrix persegi B n x n dan <strong>AB = BA = I</strong>, dimana I adalah dinotasikan dengan matrix Identitas n x n dan perkalian yang digunakan adalah perkalian matrix biasa. Maka Matrix B secara unik ditentukan oleh Matrix A, dan disebut Inverse dari Matrix A. dinotasikan dengan <span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span>. Matrix inversion adalah proses untuk menemukan invers marix dari invertible Matrix. Lain halnya Matrix persegi yang tidak dapat dibalik disebut Matrix singular atau matrix tunggal atau degenerate.</p>
+<p>Misal Matrix <span class="math notranslate nohighlight">\(
+\begin{align*}
+A=
+\begin{bmatrix}
+2&amp;3\\
+1&amp;1\\
+\end{bmatrix}
+\end{align*}
+\)</span>
+Matrix AB = BA = I, Maka Matrix B adalah Matrix <span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span>.</p>
+<p>Bisa kita buktikan dengan code, misal kita cari nilai B nya dulu</p>
+<p>Matrix I disini adalah Matrix Identitasnya=\begin{bmatrix}1&amp;0\
+0&amp;1\
+\end{bmatrix}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># contoh Matrix A dan B 2 x 2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A = </span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I = </span><span class="se">\n</span><span class="si">{</span><span class="n">I</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">RowSwap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#     A is a NumPy array.  RowSwap will return duplicate array with rows</span>
+<span class="c1">#     k and l swapped. (menukarkan persamaan)</span>
+<span class="c1"># =============================================================================</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># m is number of rows in A (jumlah baris A)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># n is number of columns in A (jumlah kolom A)</span>
+
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+
+    <span class="k">return</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">RowScale</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">scale</span><span class="p">):</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#     A is a NumPy array.  RowScale will return duplicate array with the</span>
+<span class="c1">#     entries of row k multiplied by scale. (mengalikan entry baris A dengan skala)</span>
+<span class="c1"># =============================================================================</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># m is number of rows in A</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># n is number of columns in A</span>
+
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*=</span> <span class="n">scale</span>
+
+    <span class="k">return</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">scale</span><span class="p">):</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#     A is a numpy array.  RowAdd will return duplicate array with row</span>
+<span class="c1">#     l modified.  The new values will be the old values of row l added to</span>
+<span class="c1">#     the values of row k, multiplied by scale. (menambahkan nilai baris k dikalikan dengan skala)</span>
+<span class="c1"># =============================================================================</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># m is number of rows in A</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># n is number of columns in A</span>
+
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span>
+
+    <span class="k">return</span> <span class="n">B</span>
+
+
+<span class="n">A1</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">A2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">I2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A3</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">I3</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">I2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A3 = </span><span class="se">\n</span><span class="si">{</span><span class="n">A3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I3 = </span><span class="se">\n</span><span class="si">{</span><span class="n">I3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">I3</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;B = </span><span class="se">\n</span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AB = BA </span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="nd">@B</span><span class="si">}</span><span class="s2"> =</span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="si">{</span><span class="n">B</span><span class="nd">@A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+[[2 3]
+ [1 1]]
+I = 
+[[1 0]
+ [0 1]]
+
+
+A3 = 
+[[1. 0.]
+ [0. 1.]]
+
+
+I3 = 
+[[-1.  3.]
+ [ 1. -2.]]
+
+
+B = 
+[[-1.  3.]
+ [ 1. -2.]]
+
+
+AB = BA 
+[[1. 0.]
+ [0. 1.]] =
+ 
+[[1. 0.]
+ [0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="sifat-sifat-matrix-invers">
 <h2>Sifat sifat Matrix Invers<a class="headerlink" href="#sifat-sifat-matrix-invers" title="Link to this heading">#</a></h2>
@@ -420,9 +546,9 @@ document.write(`
 <h2>Mencari invers dengan eliminasi gaus jordan<a class="headerlink" href="#mencari-invers-dengan-eliminasi-gaus-jordan" title="Link to this heading">#</a></h2>
 <p>Dalam penerapan gauss Jordan dengan menggunakan Operasi Baris Elementer atau disebut OBE. Operai OBE terdiri dari 3 cara, yaitu:</p>
 <ol class="arabic simple">
-<li><p>Menambahkan kelipatan baris ke baris yang lain</p></li>
-<li><p>mengkalikan baris dengan bilangan selain nol</p></li>
-<li><p>Menukarkan posisi baris satu dengan baris yang lain</p></li>
+<li><p>Menambahkan kelipatan baris ke baris yang lain (RowAdd)</p></li>
+<li><p>mengkalikan baris dengan bilangan selain nol (RowScale)</p></li>
+<li><p>Menukarkan posisi baris satu dengan baris yang lain (RowSwap)</p></li>
 </ol>
 <p>Untuk mencari Invers dari sebuah Matrix kita harus memperhatikan persamaan - persamaannya. Untuk bisa memasukkannya dalam bentuk matrix kita pisah antara koefisien yang ada disebelah ruas kiri dan konstanta yang ada disebelah ruas kanan.
 contoh saya mempunyai persamaan linier 6 variabel:</p>
