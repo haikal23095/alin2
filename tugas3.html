@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Matrix Invers &#8212; My sample book</title>
+    <title>Matrix Invers &#8212; My Jupyter book</title>
   
   
   
@@ -151,8 +151,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="My Jupyter book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My Jupyter book - Home"/>`);</script>
   
   
 </a></div>
@@ -541,7 +541,9 @@ AB = BA
 <li><p>Matrix invers hanya ada pada Matrix yang non-singular, yaitu Determinannya tidak sama dengan 0</p></li>
 <li><p>Invers Matrix bersifat tunggal, artinya tidak ada matrix invers selain yang menjadi invers dari matrix tersebut. Jika B dan C adalah invers dari Matrix A, maka B = C.</p></li>
 <li><p>Invers dari invers suatu Matrix adalah Matrix itu sendiri</p></li>
-<li><p>Invers dari hasil kali dua atau lebih matriks adalah hasil kali invers-inversnya dalam urutan terbalik. Jika A dan B keduanya nonsingular, maka (AB)^-1 = B^-1 A^-1.</p></li>
+<li><p>Invers dari hasil kali dua atau lebih matriks adalah hasil kali invers-inversnya dalam urutan terbalik. Jika A dan B keduanya nonsingular, maka  <span class="math notranslate nohighlight">\(\begin{align*}(AB)^-1 = B^-1 A^-1\end{align*}\)</span>.</p></li>
+<li><p><strong>Ax = b</strong> maka <strong>x = <span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span>b</strong> , x adalah variabel dari koefisien A, dan b adalah konstanta</p></li>
+<li><p>Matrix Invers A dikali dengan A maka sama dengan Matrix Identitas. <span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span> x <span class="math notranslate nohighlight">\(\begin{align*}A \end{align*}\)</span> = <span class="math notranslate nohighlight">\(\begin{align*}I\end{align*}\)</span></p></li>
 </ol>
 </section>
 <section id="mencari-invers-dengan-eliminasi-gaus-jordan">
@@ -600,21 +602,32 @@ I=
 \end{bmatrix}
 \end{align*}
 \)</span></p>
-<p>Jangan lupa untuk bandingkan dengan Matrix Identitasnya agar kita bisa cari Matrix inversnya</p>
+<p>Jangan lupa untuk operasikan juga Matrix Identitasnya agar kita bisa cari Matrix inversnya</p>
 </section>
 <section id="solusi-sistem-persamaan-linier-dengan-matrix-invers-dengan-6-variabel">
 <h2>Solusi sistem persamaan linier dengan matrix invers dengan 6 variabel<a class="headerlink" href="#solusi-sistem-persamaan-linier-dengan-matrix-invers-dengan-6-variabel" title="Link to this heading">#</a></h2>
 <p>Untuk bisa kita menemukan invers dari suatu matrix, kita harus melakukan operasi - operasi baris elementer pada Matrix Identitas yang dimana operasi operasi baris elemternya sama dengan operasi - operasi baris elementer yang mengubah Matrix KoefisienA menjadi matrix identitas.</p>
 <section id="penyelesaian-dengan-code">
 <h3>Penyelesaian dengan code<a class="headerlink" href="#penyelesaian-dengan-code" title="Link to this heading">#</a></h3>
-<p>Berikut adalah contoh penyelesaian mencari Invers Matrix 6x6 dengan code python</p>
+<p>Berikut adalah contoh penyelesaian mencari Invers Matrix 6x6 dengan code python. Dalam code pada Matrix A  nilai koefisien dan konstanta digabung dalam satu matrix agar mempermudah perhitungan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import library numpy and memasukkan persamaan dalam bentuk matrix</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A  = </span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix b =</span><span class="se">\n</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kita gabungkan setiap kolom Matrix b ke baris Matrix A&quot;</span><span class="p">)</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">25</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">22</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">23</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">16</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">17</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A  = </span><span class="se">\n</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kita juga definisikan Matrix Identitasnya&quot;</span><span class="p">)</span>
 <span class="n">B</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix I = </span><span class="se">\n</span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -622,6 +635,20 @@ I=
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix A  = 
+[[2 2 2 4 3 6]
+ [2 2 1 4 4 5]
+ [1 1 3 4 1 6]
+ [3 2 1 1 2 3]
+ [2 1 2 3 1 3]
+ [1 2 1 1 3 1]]
+
+
+Matrix b =
+[25 22 23 16 17 13]
+
+
+Kita gabungkan setiap kolom Matrix b ke baris Matrix A
+Matrix A  = 
 [[ 2  2  2  4  3  6 25]
  [ 2  2  1  4  4  5 22]
  [ 1  1  3  4  1  6 23]
@@ -630,6 +657,7 @@ I=
  [ 1  2  1  1  3  1 13]]
 
 
+Kita juga definisikan Matrix Identitasnya
 Matrix I = 
 [[1 0 0 0 0 0]
  [0 1 0 0 0 0]
@@ -696,57 +724,58 @@ Matrix I =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tukar antara baris 0 dengan baris 2&quot;</span><span class="p">)</span>
+<span class="n">A1</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B1</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris 0 dengan -2 ke baris 1&quot;</span><span class="p">)</span>
 <span class="n">A2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris 0 dengan -2 ke baris 2&quot;</span><span class="p">)</span>
 <span class="n">A3</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B3</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 0 dengan -3 ke baris 3&quot;</span><span class="p">)</span>
 <span class="n">A4</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B4</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 0 dengan -2 ke baris 4&quot;</span><span class="p">)</span>
 <span class="n">A5</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B5</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 0 dengan -1 ke baris 5&quot;</span><span class="p">)</span>
 <span class="n">A6</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B6</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  1.  3.  4.  1.  6. 23.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tukar antara baris 0 dengan baris 2
+[[ 1.  1.  3.  4.  1.  6. 23.]
  [ 2.  2.  1.  4.  4.  5. 22.]
  [ 2.  2.  2.  4.  3.  6. 25.]
  [ 3.  2.  1.  1.  2.  3. 16.]
@@ -762,6 +791,7 @@ Matrix I =
  [0. 0. 0. 0. 0. 1.]]
 
 
+Jumlahkan perkalian baris 0 dengan -2 ke baris 1
 [[  1.   1.   3.   4.   1.   6.  23.]
  [  0.   0.  -5.  -4.   2.  -7. -24.]
  [  2.   2.   2.   4.   3.   6.  25.]
@@ -778,6 +808,7 @@ Matrix I =
  [ 0.  0.  0.  0.  0.  1.]]
 
 
+Jumlahkan perkalian baris 0 dengan -2 ke baris 2
 [[  1.   1.   3.   4.   1.   6.  23.]
  [  0.   0.  -5.  -4.   2.  -7. -24.]
  [  0.   0.  -4.  -4.   1.  -6. -21.]
@@ -794,6 +825,7 @@ Matrix I =
  [ 0.  0.  0.  0.  0.  1.]]
 
 
+Jumlahkan perkalian baris ke 0 dengan -3 ke baris 3
 [[  1.   1.   3.   4.   1.   6.  23.]
  [  0.   0.  -5.  -4.   2.  -7. -24.]
  [  0.   0.  -4.  -4.   1.  -6. -21.]
@@ -810,6 +842,7 @@ Matrix I =
  [ 0.  0.  0.  0.  0.  1.]]
 
 
+Jumlahkan perkalian baris ke 0 dengan -2 ke baris 4
 [[  1.   1.   3.   4.   1.   6.  23.]
  [  0.   0.  -5.  -4.   2.  -7. -24.]
  [  0.   0.  -4.  -4.   1.  -6. -21.]
@@ -826,6 +859,7 @@ Matrix I =
  [ 0.  0.  0.  0.  0.  1.]]
 
 
+Jumlahkan perkalian baris ke 0 dengan -1 ke baris 5
 [[  1.   1.   3.   4.   1.   6.  23.]
  [  0.   0.  -5.  -4.   2.  -7. -24.]
  [  0.   0.  -4.  -4.   1.  -6. -21.]
@@ -846,34 +880,34 @@ Matrix I =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A7</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">A6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tukar baris ke 5 dengan baris ke 1&quot;</span><span class="p">)</span>
+<span class="n">A7</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">A6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B7</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">B6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 1 dengan -1 ke baris 0&quot;</span><span class="p">)</span>
 <span class="n">A8</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A8</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B8</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B8</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 1 dengan 1 ke baris 3&quot;</span><span class="p">)</span>
 <span class="n">A9</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A9</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B9</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B9</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 1 dengan 1 ke baris 4&quot;</span><span class="p">)</span>
 <span class="n">A10</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B10</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -881,7 +915,8 @@ Matrix I =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1.   1.   3.   4.   1.   6.  23.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tukar baris ke 5 dengan baris ke 1
+[[  1.   1.   3.   4.   1.   6.  23.]
  [  0.   1.  -2.  -3.   2.  -5. -10.]
  [  0.   0.  -4.  -4.   1.  -6. -21.]
  [  0.  -1.  -8. -11.  -1. -15. -53.]
@@ -897,6 +932,7 @@ Matrix I =
  [ 0.  1. -2.  0.  0.  0.]]
 
 
+Jumlahkan perkalian baris ke 1 dengan -1 ke baris 0
 [[  1.   0.   5.   7.  -1.  11.  33.]
  [  0.   1.  -2.  -3.   2.  -5. -10.]
  [  0.   0.  -4.  -4.   1.  -6. -21.]
@@ -913,6 +949,7 @@ Matrix I =
  [ 0.  1. -2.  0.  0.  0.]]
 
 
+Jumlahkan perkalian baris ke 1 dengan 1 ke baris 3
 [[  1.   0.   5.   7.  -1.  11.  33.]
  [  0.   1.  -2.  -3.   2.  -5. -10.]
  [  0.   0.  -4.  -4.   1.  -6. -21.]
@@ -929,6 +966,7 @@ Matrix I =
  [ 0.  1. -2.  0.  0.  0.]]
 
 
+Jumlahkan perkalian baris ke 1 dengan 1 ke baris 4
 [[  1.   0.   5.   7.  -1.  11.  33.]
  [  0.   1.  -2.  -3.   2.  -5. -10.]
  [  0.   0.  -4.  -4.   1.  -6. -21.]
@@ -949,50 +987,50 @@ Matrix I =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A11</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 5 dengan -1 ke baris 2&quot;</span><span class="p">)</span>
+<span class="n">A11</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A11</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B11</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B11</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 2 dengan -5 ke baris 0&quot;</span><span class="p">)</span>
 <span class="n">A12</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A11</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A12</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B12</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B11</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B12</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 2 dengan 2 ke baris 1&quot;</span><span class="p">)</span>
 <span class="n">A13</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A12</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A13</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B13</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B12</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B13</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 2 dengan 10 ke baris 3&quot;</span><span class="p">)</span>
 <span class="n">A14</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A13</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A14</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B14</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B13</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B14</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 2 dengan 6 ke baris 4&quot;</span><span class="p">)</span>
 <span class="n">A15</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A14</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A14</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B15</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B14</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B14</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 2 dengan 5 ke baris 5&quot;</span><span class="p">)</span>
 <span class="n">A16</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A15</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A16</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B16</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B15</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B16</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1000,7 +1038,8 @@ Matrix I =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1.   0.   5.   7.  -1.  11.  33.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlahkan perkalian baris ke 5 dengan -1 ke baris 2
+[[  1.   0.   5.   7.  -1.  11.  33.]
  [  0.   1.  -2.  -3.   2.  -5. -10.]
  [  0.   0.   1.   0.  -1.   1.   3.]
  [  0.   0. -10. -14.   1. -20. -63.]
@@ -1016,6 +1055,7 @@ Matrix I =
  [ 0.  1. -2.  0.  0.  0.]]
 
 
+Jumlahkan perkalian baris ke 2 dengan -5 ke baris 0
 [[  1.   0.   0.   7.   4.   6.  18.]
  [  0.   1.  -2.  -3.   2.  -5. -10.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1032,6 +1072,7 @@ Matrix I =
  [ 0.  1. -2.  0.  0.  0.]]
 
 
+Jumlahkan perkalian baris ke 2 dengan 2 ke baris 1
 [[  1.   0.   0.   7.   4.   6.  18.]
  [  0.   1.   0.  -3.   0.  -3.  -4.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1048,6 +1089,7 @@ Matrix I =
  [ 0.  1. -2.  0.  0.  0.]]
 
 
+Jumlahkan perkalian baris ke 2 dengan 10 ke baris 3
 [[  1.   0.   0.   7.   4.   6.  18.]
  [  0.   1.   0.  -3.   0.  -3.  -4.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1064,6 +1106,7 @@ Matrix I =
  [  0.   1.  -2.   0.   0.   0.]]
 
 
+Jumlahkan perkalian baris ke 2 dengan 6 ke baris 4
 [[  1.   0.   0.   7.   4.   6.  18.]
  [  0.   1.   0.  -3.   0.  -3.  -4.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1080,6 +1123,7 @@ Matrix I =
  [  0.   1.  -2.   0.   0.   0.]]
 
 
+Jumlahkan perkalian baris ke 2 dengan 5 ke baris 5
 [[  1.   0.   0.   7.   4.   6.  18.]
  [  0.   1.   0.  -3.   0.  -3.  -4.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1100,58 +1144,58 @@ Matrix I =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A17</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A16</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 4 dengan -1 ke baris 3&quot;</span><span class="p">)</span>
+<span class="n">A17</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A16</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A17</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B17</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B16</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B17</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jummlahkan perkalian baris ke 5 dengan -2 ke baris 3&quot;</span><span class="p">)</span>
 <span class="n">A18</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A17</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A18</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B18</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B17</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B18</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 3 dengan 1/2 ke baris 1&quot;</span><span class="p">)</span>
 <span class="n">A19</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">A18</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A19</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B19</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">B18</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B19</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 3 dengan -7 ke baris 0&quot;</span><span class="p">)</span>
 <span class="n">A20</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A19</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A20</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B20</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B19</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B20</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 3 dengan 3 ke baris 1&quot;</span><span class="p">)</span>
 <span class="n">A21</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A20</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A21</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B21</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B20</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B21</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 3 dengan 8 ke baris 4&quot;</span><span class="p">)</span>
 <span class="n">A22</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A21</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A22</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B22</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B21</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B22</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 3 dengan 4 ke baris 5&quot;</span><span class="p">)</span>
 <span class="n">A23</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A22</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A23</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B23</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B22</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B23</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1159,7 +1203,8 @@ Matrix I =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1.   0.   0.   7.   4.   6.  18.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlahkan perkalian baris ke 4 dengan -1 ke baris 3
+[[  1.   0.   0.   7.   4.   6.  18.]
  [  0.   1.   0.  -3.   0.  -3.  -4.]
  [  0.   0.   1.   0.  -1.   1.   3.]
  [  0.   0.   0.  -6.  -4.  -2. -12.]
@@ -1175,6 +1220,7 @@ Matrix I =
  [ 5. -4. -2.  0.  0.  0.]]
 
 
+Jummlahkan perkalian baris ke 5 dengan -2 ke baris 3
 [[  1.   0.   0.   7.   4.   6.  18.]
  [  0.   1.   0.  -3.   0.  -3.  -4.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1191,6 +1237,7 @@ Matrix I =
  [ 5. -4. -2.  0.  0.  0.]]
 
 
+Jumlahkan perkalian baris ke 3 dengan 1/2 ke baris 1
 [[  1.   0.   0.   7.   4.   6.  18.]
  [  0.   1.   0.  -3.   0.  -3.  -4.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1207,6 +1254,7 @@ Matrix I =
  [ 5.  -4.  -2.   0.   0.   0. ]]
 
 
+Jumlahkan perkalian baris ke 3 dengan -7 ke baris 0
 [[  1.   0.   0.   0.  -3.  -1.  -3.]
  [  0.   1.   0.  -3.   0.  -3.  -4.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1223,6 +1271,7 @@ Matrix I =
  [ 5.  -4.  -2.   0.   0.   0. ]]
 
 
+Jumlahkan perkalian baris ke 3 dengan 3 ke baris 1
 [[  1.   0.   0.   0.  -3.  -1.  -3.]
  [  0.   1.   0.   0.   3.   0.   5.]
  [  0.   0.   1.   0.  -1.   1.   3.]
@@ -1239,6 +1288,7 @@ Matrix I =
  [ 5.  -4.  -2.   0.   0.   0. ]]
 
 
+Jumlahkan perkalian baris ke 3 dengan 8 ke baris 4
 [[ 1.  0.  0.  0. -3. -1. -3.]
  [ 0.  1.  0.  0.  3.  0.  5.]
  [ 0.  0.  1.  0. -1.  1.  3.]
@@ -1255,6 +1305,7 @@ Matrix I =
  [  5.   -4.   -2.    0.    0.    0. ]]
 
 
+Jumlahkan perkalian baris ke 3 dengan 4 ke baris 5
 [[ 1.  0.  0.  0. -3. -1. -3.]
  [ 0.  1.  0.  0.  3.  0.  5.]
  [ 0.  0.  1.  0. -1.  1.  3.]
@@ -1275,50 +1326,50 @@ Matrix I =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A24</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">A23</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tukar baris ke 5 dengan baris ke 4&quot;</span><span class="p">)</span>
+<span class="n">A24</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">A23</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A24</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B24</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">B23</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B24</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 4 dengan 3 ke baris 0&quot;</span><span class="p">)</span>
 <span class="n">A25</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A24</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A25</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B25</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B24</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B25</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 4 dengan -3 ke baris 1&quot;</span><span class="p">)</span>
 <span class="n">A26</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A25</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A26</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B26</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B25</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B26</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 4 dengan 1 ke baris 2&quot;</span><span class="p">)</span>
 <span class="n">A27</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A26</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A27</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B27</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B26</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B27</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 4 dengan -1 ke baris 3&quot;</span><span class="p">)</span>
 <span class="n">A28</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A27</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A28</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B28</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B27</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B28</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 4 dengan -3 ke baris 5&quot;</span><span class="p">)</span>
 <span class="n">A29</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A28</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A29</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B29</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B28</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B29</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1326,7 +1377,8 @@ Matrix I =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  0.  0.  0. -3. -1. -3.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tukar baris ke 5 dengan baris ke 4
+[[ 1.  0.  0.  0. -3. -1. -3.]
  [ 0.  1.  0.  0.  3.  0.  5.]
  [ 0.  0.  1.  0. -1.  1.  3.]
  [ 0.  0.  0.  1.  1.  1.  3.]
@@ -1342,6 +1394,7 @@ Matrix I =
  [-18.   10.    9.    4.   -3.    1. ]]
 
 
+Jumlahkan perkalian baris ke 4 dengan 3 ke baris 0
 [[ 1.  0.  0.  0.  0.  5.  6.]
  [ 0.  1.  0.  0.  3.  0.  5.]
  [ 0.  0.  1.  0. -1.  1.  3.]
@@ -1358,6 +1411,7 @@ Matrix I =
  [-18.   10.    9.    4.   -3.    1. ]]
 
 
+Jumlahkan perkalian baris ke 4 dengan -3 ke baris 1
 [[ 1.  0.  0.  0.  0.  5.  6.]
  [ 0.  1.  0.  0.  0. -6. -4.]
  [ 0.  0.  1.  0. -1.  1.  3.]
@@ -1374,6 +1428,7 @@ Matrix I =
  [-18.   10.    9.    4.   -3.    1. ]]
 
 
+Jumlahkan perkalian baris ke 4 dengan 1 ke baris 2
 [[ 1.  0.  0.  0.  0.  5.  6.]
  [ 0.  1.  0.  0.  0. -6. -4.]
  [ 0.  0.  1.  0.  0.  3.  6.]
@@ -1390,6 +1445,7 @@ Matrix I =
  [-18.   10.    9.    4.   -3.    1. ]]
 
 
+Jumlahkan perkalian baris ke 4 dengan -1 ke baris 3
 [[ 1.  0.  0.  0.  0.  5.  6.]
  [ 0.  1.  0.  0.  0. -6. -4.]
  [ 0.  0.  1.  0.  0.  3.  6.]
@@ -1406,6 +1462,7 @@ Matrix I =
  [-18.   10.    9.    4.   -3.    1. ]]
 
 
+Jumlahkan perkalian baris ke 4 dengan -3 ke baris 5
 [[ 1.  0.  0.  0.  0.  5.  6.]
  [ 0.  1.  0.  0.  0. -6. -4.]
  [ 0.  0.  1.  0.  0.  3.  6.]
@@ -1426,61 +1483,62 @@ Matrix I =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A30</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">A29</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kaliakan baris 5 dengan -1/6&quot;</span><span class="p">)</span>
+<span class="n">A30</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">A29</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A30</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B30</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">B29</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B30</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 5 dengan -5 ke baris 0&quot;</span><span class="p">)</span>
 <span class="n">A31</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A30</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A31</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B31</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B30</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B31</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 5 dengan 6 ke baris 1&quot;</span><span class="p">)</span>
 <span class="n">A32</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A31</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A32</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B32</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B31</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B32</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 5 dengan -3 ke baris 2&quot;</span><span class="p">)</span>
 <span class="n">A33</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A32</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A33</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B33</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B32</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B33</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 5 dengan 1 ke baris 3&quot;</span><span class="p">)</span>
 <span class="n">A34</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A33</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A34</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B34</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B33</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B34</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlahkan perkalian baris ke 5 dengan -2 ke baris 4&quot;</span><span class="p">)</span>
 <span class="n">A35</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A34</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A35</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="n">B35</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">B34</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A_invers</span> <span class="o">=</span> <span class="n">B35</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B35</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A = </span><span class="se">\n</span><span class="si">{</span><span class="n">A35</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pembulatan Matrix I = </span><span class="se">\n</span><span class="si">{</span><span class="n">B35</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Selesai&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kaliakan baris 5 dengan -1/6
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  0.  0.  0.  0.  5.  6.]
  [ 0.  1.  0.  0.  0. -6. -4.]
  [ 0.  0.  1.  0.  0.  3.  6.]
@@ -1497,6 +1555,7 @@ Matrix I =
  [-0.5         0.33333333  0.5         0.33333333 -0.5        -0.16666667]]
 
 
+Jumlahkan perkalian baris ke 5 dengan -5 ke baris 0
 [[ 1.  0.  0.  0.  0.  0.  1.]
  [ 0.  1.  0.  0.  0. -6. -4.]
  [ 0.  0.  1.  0.  0.  3.  6.]
@@ -1513,6 +1572,7 @@ Matrix I =
  [-0.5         0.33333333  0.5         0.33333333 -0.5        -0.16666667]]
 
 
+Jumlahkan perkalian baris ke 5 dengan 6 ke baris 1
 [[ 1.  0.  0.  0.  0.  0.  1.]
  [ 0.  1.  0.  0.  0.  0.  2.]
  [ 0.  0.  1.  0.  0.  3.  6.]
@@ -1529,6 +1589,7 @@ Matrix I =
  [-0.5         0.33333333  0.5         0.33333333 -0.5        -0.16666667]]
 
 
+Jumlahkan perkalian baris ke 5 dengan -3 ke baris 2
 [[ 1.  0.  0.  0.  0.  0.  1.]
  [ 0.  1.  0.  0.  0.  0.  2.]
  [ 0.  0.  1.  0.  0.  0.  3.]
@@ -1545,6 +1606,7 @@ Matrix I =
  [-0.5         0.33333333  0.5         0.33333333 -0.5        -0.16666667]]
 
 
+Jumlahkan perkalian baris ke 5 dengan 1 ke baris 3
 [[ 1.  0.  0.  0.  0.  0.  1.]
  [ 0.  1.  0.  0.  0.  0.  2.]
  [ 0.  0.  1.  0.  0.  0.  3.]
@@ -1561,6 +1623,7 @@ Matrix I =
  [-0.5         0.33333333  0.5         0.33333333 -0.5        -0.16666667]]
 
 
+Jumlahkan perkalian baris ke 5 dengan -2 ke baris 4
 [[ 1.  0.  0.  0.  0.  0.  1.]
  [ 0.  1.  0.  0.  0.  0.  2.]
  [ 0.  0.  1.  0.  0.  0.  3.]
@@ -1577,6 +1640,24 @@ Matrix I =
  [-0.5         0.33333333  0.5         0.33333333 -0.5        -0.16666667]]
 
 
+Selesai
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrix A menjadi Matrix Identitas setelah 35 operasi gaus jordan&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A = </span><span class="se">\n</span><span class="si">{</span><span class="n">A35</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix A Invers = </span><span class="se">\n</span><span class="si">{</span><span class="n">A_invers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pembulatan Matrix A Invers = </span><span class="se">\n</span><span class="si">{</span><span class="n">A_invers</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix A menjadi Matrix Identitas setelah 35 operasi gaus jordan
 Matrix A = 
 [[ 1.  0.  0.  0.  0.  0.  1.]
  [ 0.  1.  0.  0.  0.  0.  2.]
@@ -1586,7 +1667,16 @@ Matrix A =
  [-0. -0. -0. -0. -0.  1.  1.]]
 
 
-Pembulatan Matrix I = 
+Matrix A Invers = 
+[[-2.5         1.33333333  1.          0.83333333  0.         -0.16666667]
+ [11.         -6.         -5.5        -2.5         1.5         0.        ]
+ [-4.5         2.          2.5         1.         -0.5         0.5       ]
+ [ 3.5        -1.66666667 -2.         -1.16666667  1.         -0.16666667]
+ [-6.          3.33333333  3.          1.33333333 -1.          0.33333333]
+ [-0.5         0.33333333  0.5         0.33333333 -0.5        -0.16666667]]
+
+
+Pembulatan Matrix A Invers = 
 [[-2.  1.  1.  1.  0. -0.]
  [11. -6. -6. -2.  2.  0.]
  [-4.  2.  2.  1. -0.  0.]
@@ -1635,6 +1725,54 @@ MatrixA^-1=
 \end{bmatrix}
 \end{align*}
 \)</span></p>
+<p>Pembuktian Nomor 6:</p>
+<p><strong>Ax = b</strong> maka <strong>x = <span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span>b</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ax = b&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ax = </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = A^-1 b&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x = </span><span class="si">{</span><span class="n">B35</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ax = b
+Ax = [25 22 23 16 17 13]
+
+
+x = A^-1 b
+x = [1. 2. 3. 1. 1. 1.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pembuktian Nomor 7:</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span> x <span class="math notranslate nohighlight">\(\begin{align*}A \end{align*}\)</span> = <span class="math notranslate nohighlight">\(\begin{align*}I\end{align*}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">A_invers</span> <span class="o">@</span> <span class="n">A</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_invers x A = I&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A_invers x A =</span><span class="se">\n</span><span class="si">{</span><span class="n">C</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_invers x A = I
+A_invers x A =
+[[ 1.  0.  0.  0.  0.  0.  1.]
+ [ 0.  1.  0.  0.  0.  0.  2.]
+ [ 0.  0.  1.  0.  0.  0.  3.]
+ [-0. -0. -0.  1. -0. -0.  1.]
+ [ 0.  0.  0.  0.  1.  0.  1.]
+ [-0. -0. -0. -0. -0.  1.  1.]]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
