@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -178,9 +178,10 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Penyelesaian Sistem Linier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas2.html">Aljabar Matrix</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="tugas3.html">Matrix Invers</a></li>
 </ul>
 
     </div>
@@ -376,8 +377,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Penyelesaian Sistem Linier</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#page-title">Page title</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian">Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss">Mendefinisikan fungsi operasi baris eliminasi GAUSS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss">Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</a></li>
@@ -385,9 +384,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-kurva-bidang">Implementasi dengan kurva bidang</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -400,22 +396,18 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="penyelesaian-sistem-linier">
 <h1><a class="toc-backref" href="#id1" role="doc-backlink">Penyelesaian Sistem Linier</a><a class="headerlink" href="#penyelesaian-sistem-linier" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="page-title">
-<h1><a class="toc-backref" href="#id2" role="doc-backlink">Page title</a><a class="headerlink" href="#page-title" title="Link to this heading">#</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#penyelesaian-sistem-linier" id="id1">Penyelesaian Sistem Linier</a></p></li>
-<li><p><a class="reference internal" href="#page-title" id="id2">Page title</a></p>
+<li><p><a class="reference internal" href="#penyelesaian-sistem-linier" id="id1">Penyelesaian Sistem Linier</a></p>
 <ul>
-<li><p><a class="reference internal" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian" id="id3">Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</a></p>
+<li><p><a class="reference internal" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian" id="id2">Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</a></p>
 <ul>
-<li><p><a class="reference internal" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss" id="id4">Mendefinisikan fungsi operasi baris eliminasi GAUSS</a></p></li>
-<li><p><a class="reference internal" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss" id="id5">Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</a></p></li>
+<li><p><a class="reference internal" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss" id="id3">Mendefinisikan fungsi operasi baris eliminasi GAUSS</a></p></li>
+<li><p><a class="reference internal" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss" id="id4">Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#implementasi-dengan-kurva-bidang" id="id6">Implementasi dengan kurva bidang</a></p></li>
+<li><p><a class="reference internal" href="#implementasi-dengan-kurva-bidang" id="id5">Implementasi dengan kurva bidang</a></p></li>
 </ul>
 </li>
 </ul>
@@ -425,7 +417,7 @@ document.write(`
 <li><p>Menggambar persamaan bidang dalam ruang 3 dimensi</p></li>
 </ul>
 <section id="penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</a><a class="headerlink" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</a><a class="headerlink" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian" title="Link to this heading">#</a></h2>
 <p>Kita mempunyai persamaan-persamaan berikut ini. Pertama kita selesaikan persamaan berikut dengan teknik eliminasi gausian:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -451,7 +443,7 @@ x_1+2x_2+3x_3 = 9\\
 </div>
 </div>
 <section id="mendefinisikan-fungsi-operasi-baris-eliminasi-gauss">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Mendefinisikan fungsi operasi baris eliminasi GAUSS</a><a class="headerlink" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Mendefinisikan fungsi operasi baris eliminasi GAUSS</a><a class="headerlink" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>RowSwap()
 =&gt; Berfungsi untuk menukar posisi pada persamaan</p></li>
@@ -515,7 +507,7 @@ x_1+2x_2+3x_3 = 9\\
 </div>
 </section>
 <section id="tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</a><a class="headerlink" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</a><a class="headerlink" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss" title="Link to this heading">#</a></h3>
 <p>Kita panggil fungsi-fungsi di atas untuk membentuk segitiga atas dalam code berikut, sehingga hasilnya seperti berikut:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -614,7 +606,7 @@ x_1+2x_2+3x_3 = 9\\
 </section>
 </section>
 <section id="implementasi-dengan-kurva-bidang">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Implementasi dengan kurva bidang</a><a class="headerlink" href="#implementasi-dengan-kurva-bidang" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Implementasi dengan kurva bidang</a><a class="headerlink" href="#implementasi-dengan-kurva-bidang" title="Link to this heading">#</a></h2>
 <p>Dalam mengimplementasikan dalam bentuk kurva bidang kita bisa gunakan library matplotlib.pyplot dan mpl_toolkits.mplot3d seperti berikut:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -744,8 +736,6 @@ x_1+2x_2+3x_3 = 9\\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Penyelesaian Sistem Linier</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#page-title">Page title</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-sistem-persamaan-linier-dengan-menggunakan-eliminasi-gausian">Penyelesaian sistem Persamaan linier dengan menggunakan eliminasi gausian</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mendefinisikan-fungsi-operasi-baris-eliminasi-gauss">Mendefinisikan fungsi operasi baris eliminasi GAUSS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-penyelesaian-dengan-menggunakan-eliminasi-gauss">Tahapan penyelesaian dengan menggunakan Eliminasi Gauss</a></li>
@@ -753,9 +743,6 @@ x_1+2x_2+3x_3 = 9\\
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-kurva-bidang">Implementasi dengan kurva bidang</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -177,9 +177,10 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tugas1.html">Penyelesaian Sistem Linier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas2.html">Aljabar Matrix</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Matrix Invers</a></li>
 </ul>
 
     </div>
@@ -375,8 +376,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Matrix Invers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#page-title">Page title</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Matrix Invers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-sifat-matrix-invers">Sifat sifat Matrix Invers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-invers-dengan-eliminasi-gaus-jordan">Mencari invers dengan eliminasi gaus jordan</a></li>
@@ -385,9 +384,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -400,21 +396,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="matrix-invers">
 <h1><a class="toc-backref" href="#id2" role="doc-backlink">Matrix Invers</a><a class="headerlink" href="#matrix-invers" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="page-title">
-<h1><a class="toc-backref" href="#id3" role="doc-backlink">Page title</a><a class="headerlink" href="#page-title" title="Link to this heading">#</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#matrix-invers" id="id2">Matrix Invers</a></p></li>
-<li><p><a class="reference internal" href="#page-title" id="id3">Page title</a></p>
+<li><p><a class="reference internal" href="#matrix-invers" id="id2">Matrix Invers</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id1" id="id4">Matrix Invers</a></p></li>
-<li><p><a class="reference internal" href="#sifat-sifat-matrix-invers" id="id5">Sifat sifat Matrix Invers</a></p></li>
-<li><p><a class="reference internal" href="#mencari-invers-dengan-eliminasi-gaus-jordan" id="id6">Mencari invers dengan eliminasi gaus jordan</a></p></li>
-<li><p><a class="reference internal" href="#solusi-sistem-persamaan-linier-dengan-matrix-invers-dengan-6-variabel" id="id7">Solusi sistem persamaan linier dengan matrix invers dengan 6 variabel</a></p>
+<li><p><a class="reference internal" href="#id1" id="id3">Matrix Invers</a></p></li>
+<li><p><a class="reference internal" href="#sifat-sifat-matrix-invers" id="id4">Sifat sifat Matrix Invers</a></p></li>
+<li><p><a class="reference internal" href="#mencari-invers-dengan-eliminasi-gaus-jordan" id="id5">Mencari invers dengan eliminasi gaus jordan</a></p></li>
+<li><p><a class="reference internal" href="#solusi-sistem-persamaan-linier-dengan-matrix-invers-dengan-6-variabel" id="id6">Solusi sistem persamaan linier dengan matrix invers dengan 6 variabel</a></p>
 <ul>
-<li><p><a class="reference internal" href="#penyelesaian-dengan-code" id="id8">Penyelesaian dengan code</a></p></li>
+<li><p><a class="reference internal" href="#penyelesaian-dengan-code" id="id7">Penyelesaian dengan code</a></p></li>
 </ul>
 </li>
 </ul>
@@ -428,7 +420,7 @@ document.write(`
 <li><p>(membuat soal persamaan linier 6 variabel)</p></li>
 </ul>
 <section id="id1">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Matrix Invers</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Matrix Invers</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Dalam aljabar linear matrix persegi A n x n disebut invertible (atau juga disebut nonsingular, nondegenerate, atau biasanya digunakan secara umum).</p>
 <p>Jika terdapat sebuah matrix persegi B n x n dan <strong>AB = BA = I</strong>, dimana I adalah dinotasikan dengan matrix Identitas n x n dan perkalian yang digunakan adalah perkalian matrix biasa. Maka Matrix B secara unik ditentukan oleh Matrix A, dan disebut Inverse dari Matrix A. dinotasikan dengan <span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span>. Matrix inversion adalah proses untuk menemukan invers marix dari invertible Matrix. Lain halnya Matrix persegi yang tidak dapat dibalik disebut Matrix singular atau matrix tunggal atau degenerate.</p>
 <p>Misal Matrix <span class="math notranslate nohighlight">\(
@@ -560,7 +552,7 @@ AB = BA
 </div>
 </section>
 <section id="sifat-sifat-matrix-invers">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Sifat sifat Matrix Invers</a><a class="headerlink" href="#sifat-sifat-matrix-invers" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Sifat sifat Matrix Invers</a><a class="headerlink" href="#sifat-sifat-matrix-invers" title="Link to this heading">#</a></h2>
 <p>Matrix invers adalah sifat yang berlaku pada matrix yang merupakan kebalikan dari Matrix asal. Matrix invers dapat ditulis dengan simbol <span class="math notranslate nohighlight">\(\begin{align*}A^-1\end{align*}\)</span> yang berarti jika dikalikan dengan Matrix A akan menghasilkan Matrix Identitas atau Matrix <span class="math notranslate nohighlight">\(\begin{align*}I\end{align*}\)</span>. Matrix Identitas adalah Matrix yang memiliki angka 1 sebagai diagonal utamanya dan selain itu angka 0 nilainya.</p>
 <p><strong>Berikut adalah sifat sifat Matrix Invers:</strong></p>
 <ol class="arabic simple">
@@ -574,7 +566,7 @@ AB = BA
 </ol>
 </section>
 <section id="mencari-invers-dengan-eliminasi-gaus-jordan">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Mencari invers dengan eliminasi gaus jordan</a><a class="headerlink" href="#mencari-invers-dengan-eliminasi-gaus-jordan" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Mencari invers dengan eliminasi gaus jordan</a><a class="headerlink" href="#mencari-invers-dengan-eliminasi-gaus-jordan" title="Link to this heading">#</a></h2>
 <p>Dalam penerapan gauss Jordan dengan menggunakan Operasi Baris Elementer atau disebut OBE. Operai OBE terdiri dari 3 cara, yaitu:</p>
 <ol class="arabic simple">
 <li><p>Menambahkan kelipatan baris ke baris yang lain (RowAdd)</p></li>
@@ -632,10 +624,10 @@ I=
 <p>Jangan lupa untuk operasikan juga Matrix Identitasnya agar kita bisa cari Matrix inversnya</p>
 </section>
 <section id="solusi-sistem-persamaan-linier-dengan-matrix-invers-dengan-6-variabel">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Solusi sistem persamaan linier dengan matrix invers dengan 6 variabel</a><a class="headerlink" href="#solusi-sistem-persamaan-linier-dengan-matrix-invers-dengan-6-variabel" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Solusi sistem persamaan linier dengan matrix invers dengan 6 variabel</a><a class="headerlink" href="#solusi-sistem-persamaan-linier-dengan-matrix-invers-dengan-6-variabel" title="Link to this heading">#</a></h2>
 <p>Untuk bisa kita menemukan invers dari suatu matrix, kita harus melakukan operasi - operasi baris elementer pada Matrix Identitas yang dimana operasi operasi baris elemternya sama dengan operasi - operasi baris elementer yang mengubah Matrix KoefisienA menjadi matrix identitas.</p>
 <section id="penyelesaian-dengan-code">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Penyelesaian dengan code</a><a class="headerlink" href="#penyelesaian-dengan-code" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Penyelesaian dengan code</a><a class="headerlink" href="#penyelesaian-dengan-code" title="Link to this heading">#</a></h3>
 <p>Berikut adalah contoh penyelesaian mencari Invers Matrix 6x6 dengan code python. Dalam code pada Matrix A  nilai koefisien dan konstanta digabung dalam satu matrix agar mempermudah perhitungan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1288,9 +1280,9 @@ Jumlahkan perkalian baris ke 3 dengan -7 ke baris 0
  [  0.   0.   0.   1.   1.   1.   3.]
  [  0.   0.   0.  -8.  -5.  -8. -21.]
  [  0.   0.   0.  -4.  -3.  -2.  -9.]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[16.  -9.  -8.5 -3.5  3.5 -1. ]
+
+
+[[16.  -9.  -8.5 -3.5  3.5 -1. ]
  [ 2.  -2.  -1.   0.   0.   1. ]
  [ 1.  -1.   0.   0.   0.   0. ]
  [-3.   2.   1.5  0.5 -0.5  0. ]
@@ -1570,9 +1562,9 @@ Jumlahkan perkalian baris ke 4 dengan -3 ke baris 5
  [ 0.  0.  0.  1.  0. -1.  0.]
  [ 0.  0.  0.  0.  1.  2.  3.]
  [-0. -0. -0. -0. -0.  1.  1.]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-5.          3.          3.5         2.5        -2.5        -1.        ]
+
+
+[[-5.          3.          3.5         2.5        -2.5        -1.        ]
  [14.         -8.         -8.5        -4.5         4.5         1.        ]
  [-6.          3.          4.          2.         -2.          0.        ]
  [ 4.         -2.         -2.5        -1.5         1.5         0.        ]
@@ -1857,8 +1849,6 @@ A_invers x A =
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Matrix Invers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#page-title">Page title</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Matrix Invers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-sifat-matrix-invers">Sifat sifat Matrix Invers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-invers-dengan-eliminasi-gaus-jordan">Mencari invers dengan eliminasi gaus jordan</a></li>
@@ -1867,9 +1857,6 @@ A_invers x A =
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
