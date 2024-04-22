@@ -556,12 +556,15 @@ Matrix AB =  Matrix BA
 </ol>
 <p>Untuk mencari Invers dari sebuah Matrix kita harus memperhatikan persamaan - persamaannya. Untuk bisa memasukkannya dalam bentuk matrix kita pisah antara koefisien yang ada disebelah ruas kiri dan konstanta yang ada disebelah ruas kanan.
 contoh saya mempunyai persamaan linier 6 variabel:</p>
-<p>2X_1 + 2X_2 + 2X_3 + 4X_4 + 3X_5 + 6X_6 = 25</p>
-<p>2X_1 + 2X_2 + X_3 + 4X_4 + 4X_5 + 5X_6 = 22</p>
-<p>X_1 + X_2 + 3X_3 + 4X_4 + X_5 + 6X_6 = 23</p>
-<p>3X_1 + 2X_2 + X_3 + X_4 + 2X_5 + 3X_6 = 16</p>
-<p>2X_1 + X_2 + 2X_3 + 3X_4 + X_5 + 3X_6 = 17</p>
-<p>X_1 + 2X_2 + X_3 + X_4 + 3X_5 + X_6 = 11</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+2X_1 + 2X_2 + 2X_3 + 4X_4 + 3X_5 + 6X_6 = 25\\
+2X_1 + 2X_2 + X_3 + 4X_4 + 4X_5 + 5X_6 = 22\\
+X_1 + X_2 + 3X_3 + 4X_4 + X_5 + 6X_6 = 23\\
+3X_1 + 2X_2 + X_3 + X_4 + 2X_5 + 3X_6 = 16\\
+2X_1 + X_2 + 2X_3 + 3X_4 + X_5 + 3X_6 = 17\\
+X_1 + 2X_2 + X_3 + X_4 + 3X_5 + X_6 = 11
+\end{split}\]</div>
 <p>Lalu kita akan masukkan dalam bentuk matrix:</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
@@ -1585,9 +1588,9 @@ Jumlahkan perkalian baris ke 5 dengan 6 ke baris 1
  [ 4.         -2.         -2.5        -1.5         1.5         0.        ]
  [-7.          4.          4.          2.         -2.          0.        ]
  [-0.5         0.33333333  0.5         0.33333333 -0.5        -0.16666667]]
-
-
-Jumlahkan perkalian baris ke 5 dengan -3 ke baris 2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlahkan perkalian baris ke 5 dengan -3 ke baris 2
 [[ 1.  0.  0.  0.  0.  0.  1.]
  [ 0.  1.  0.  0.  0.  0.  2.]
  [ 0.  0.  1.  0.  0.  0.  3.]
@@ -1628,9 +1631,9 @@ Jumlahkan perkalian baris ke 5 dengan -2 ke baris 4
  [ 0.  0.  0.  1.  0.  0.  1.]
  [ 0.  0.  0.  0.  1.  0.  1.]
  [-0. -0. -0. -0. -0.  1.  1.]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2.5         1.33333333  1.          0.83333333  0.         -0.16666667]
+
+
+[[-2.5         1.33333333  1.          0.83333333  0.         -0.16666667]
  [11.         -6.         -5.5        -2.5         1.5         0.        ]
  [-4.5         2.          2.5         1.         -0.5         0.5       ]
  [ 3.5        -1.66666667 -2.         -1.16666667  1.         -0.16666667]
