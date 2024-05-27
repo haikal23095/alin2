@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cofactor Expansion &#8212; My Jupyter book</title>
+    <title>&lt;no title&gt; &#8212; My Jupyter book</title>
   
   
   
@@ -181,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tugas2.html">Aljabar Matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas3.html">Matrix Invers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="det_Matrix_Haikal.html">Determinant Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tranformasi_linier.html">Tranformasi Linier</a></li>
 </ul>
 
     </div>
@@ -353,7 +354,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -364,11 +367,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Cofactor Expansion</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -378,192 +389,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="cofactor-expansion">
-<h1>Cofactor Expansion<a class="headerlink" href="#cofactor-expansion" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-
-<span class="n">A_invers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A_invers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.         -1.66666667  0.33333333]
- [-2.          3.         -0.        ]
- [ 0.          0.66666667 -0.33333333]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pick baris 1</span>
-
-<span class="n">A11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">A12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">A13</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">det_A11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A11</span><span class="p">)</span>
-<span class="n">det_A12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A12</span><span class="p">)</span>
-<span class="n">det_A13</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A13</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A11</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A12</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A13</span><span class="p">)</span>
-
-<span class="n">a11</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">a12</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">a13</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">a11</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a12</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a13</span><span class="p">)</span>
-
-<span class="n">c11</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A11</span>
-<span class="n">c12</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A12</span>
-<span class="n">c13</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A13</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">c11</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c12</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c13</span><span class="p">)</span>
-
-<span class="n">row1</span> <span class="o">=</span> <span class="n">a11</span> <span class="o">*</span> <span class="n">c11</span> <span class="o">+</span> <span class="n">a12</span> <span class="o">*</span> <span class="n">c12</span> <span class="o">+</span> <span class="n">a13</span> <span class="o">*</span> <span class="n">c13</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">row1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.9999999999999996
--6.0
-0.0
-3
-1
-3
--2.9999999999999996
-6.0
-0.0
--2.9999999999999982
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pick baris 1</span>
-<span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-
-<span class="n">A21</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">A22</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">A23</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-
-<span class="n">det_A21</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A21</span><span class="p">)</span>
-<span class="n">det_A22</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A22</span><span class="p">)</span>
-<span class="n">det_A23</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A23</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A11</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A12</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A13</span><span class="p">)</span>
-
-<span class="n">a21</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">a22</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">a23</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">a21</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a22</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a23</span><span class="p">)</span>
-
-<span class="n">c21</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A21</span>
-<span class="n">c22</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A22</span>
-<span class="n">c23</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A23</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c21</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c22</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c23</span><span class="p">)</span>
-
-<span class="n">row2</span> <span class="o">=</span> <span class="n">a21</span> <span class="o">*</span> <span class="n">c21</span> <span class="o">+</span> <span class="n">a22</span> <span class="o">*</span> <span class="n">c22</span> <span class="o">+</span> <span class="n">a23</span> <span class="o">*</span> <span class="n">c23</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.9999999999999996
--6.0
-0.0
-2
-1
-2
-5.000000000000001
--8.999999999999998
--2.0
--2.9999999999999964
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pick baris 1</span>
-<span class="n">A3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-
-<span class="n">A31</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">A32</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">A33</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-
-<span class="n">det_A31</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A31</span><span class="p">)</span>
-<span class="n">det_A32</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A32</span><span class="p">)</span>
-<span class="n">det_A33</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A33</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A31</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A32</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">det_A33</span><span class="p">)</span>
-
-<span class="n">a31</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">a32</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">a33</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">a31</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a32</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a33</span><span class="p">)</span>
-
-<span class="n">c31</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A31</span>
-<span class="n">c32</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A32</span>
-<span class="n">c33</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">det_A33</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">c31</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c32</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c33</span><span class="p">)</span>
-
-<span class="n">row3</span> <span class="o">=</span> <span class="n">a31</span> <span class="o">*</span> <span class="n">c31</span> <span class="o">+</span> <span class="n">a32</span> <span class="o">*</span> <span class="n">c32</span> <span class="o">+</span> <span class="n">a33</span> <span class="o">*</span> <span class="n">c33</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
-0.0
-1.0000000000000002
-4
-2
-1
--1.0
--0.0
-1.0000000000000002
--2.9999999999999964
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -601,7 +427,20 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

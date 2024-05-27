@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tranformasi Linier &#8212; My Jupyter book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tranformasi_linier';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Determinant Matrix" href="det_Matrix_Haikal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My Jupyter book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My Jupyter book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Haikal Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tugas1.html">Penyelesaian Sistem Linier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas2.html">Aljabar Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas3.html">Matrix Invers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="det_Matrix_Haikal.html">Determinant Matrix</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tranformasi Linier</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftranformasi_linier.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tranformasi_linier.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tranformasi Linier</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tranformasi Linier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linier-dalam-matriks">Transformasi Linier dalam Matriks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tranformasi-linier-rotasi">Tranformasi Linier Rotasi</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tranformasi-linier">
+<h1>Tranformasi Linier<a class="headerlink" href="#tranformasi-linier" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Tranformasi Linier<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Transformasi linear merupakan dasar dalam aljabar linear yang
+berbentuk fungsi. Transformasi linear yang dimaksud adalah perpindahan
+dari satu ruang yang biasa dinamakan dengan domain ke ruang lain yang
+dinamakan kodomain. Salah satu pembahasan dalam perkuliahan aljabar
+adalah mengenai transformasi linear yaitu suatu fungsi yang dapat
+memetakan suatu ruang vektor ke ruang vektor yang lain, sehingga operasi
+standar pada ruang vektor (penjumlahan dan perkalian dengan skalar) tetap
+berlaku.</p>
+<p><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoEAAABTCAIAAABvWEriAAAgAElEQVR4Ae2dB1gTyfvHN8kmoTeRJoqCiu3Agu2we+qJHbsgimJBRSyg2ECw4lkoFrqKqHAKogKCSpOiiCgSEBEhhBiWZY3n/by73/3ulP//2U3bQBKChwLe+OTxgWR2553P+858552ZDdC2vUfACxAABAABQAAQAAS+PgHoanwSeAECgAAgAAgAAoDA1ycAvaqqAS9AABAABAABQAAQ+PoEIBTjgxcgAAgAAoAAIAAIfH0CQIPBFAQQAAQAAUAAEGgfAkCD24f7159tgRoBAUAAEAAEOhoBoMFAgwEBQAAQAAQAgfYhADS4fbh3tLkYsAcQAAQAAUDg6xOAUARV+GpA0a+uUsWZ76JC31+If1uGfn0i7VIj8rokN+8Ji6sMaqyy+GHO43Kl7ETZT/PzC8q4ShUGp/MUEKhv4CGo4lddPaY0Z+wV4USOghrBR/IJVLEe5TwuZ8svoLQjlOlxTcvUvX6ek5tfUMaTWwvR7/JYHLkF2KV5eU9YnKZ3llu+nVra3vbUPH/YnsNXXSXu6KLXzfs1r7QwX3YE1pQ9yisoYbfCs9D/QYpf8F87876eJ9Cqd/umfFSBG7V0P6mo/M+v+OtV3YooR98emPa3Rb/fo+V3wlbcDffWq4ApDFrfDXcQJdpbEziVQbPYoERJPsoOnsqgmbve4bbSHqVu/u+5J1rs9z0daumfht1ZpblVn5rCoPXZlMxrRV+V3BzJ85vax7yfs+Sdf48v8JbyohbowBYbkj6P3j9mxbm0pAuFojP/gpxJAPY0eIY+3H1ZzGt5DuJcWKgDW7gmK9PfPytC/nEb5Vn+Vd/nXlygA7fj8FV1eroKRB/l9wyR5snL3jWYCVFNVv78pol3eLc39KUb2oeVN5ftJiUlv0LvQ8Pfh0W8j4h6Hxn22yjVRqrJn94R7yOj3odH4B+FRr7LZX897gmr/2b0+iOkEK/xzUusvO7rVS1NWWG9KN9z8Cem1n9D2iy/BBqsELgkXtunGPrybkxESGh4SFhEWERURGTIOhsmROs+2zcyIjIqPDwiNDQ8JDTycmal0ub9Qw3O8rBWZ2rNUbq69gbYis6ljKntrMF1T/xGwBBsvTMLkWEtUnFpcTe46+yQ5/JXEIEGKxW67a3BnMuOBhS4/9Z0HjmA0cqI+ca6utpUjTmh0isZSHHAFG0V650PpMqTr5X1M3k/mPt+jmYjre9vSmVjMoJPKayyjBBdiLxb16uxh8u7ppOLL1FXx7on0GBRDJD8Ul94dsOi1QG5rQpoGfdRFHKk6pQvxkvb2IcGac0Jbc2Kk7Rh/0yDlTf12yypWIMbHoVsXOASKFMgpb3wWd7H04Nry42ocgKAk7CuD117ov/jBgV1AQ1WAEfyUQsa/MUdzU1160OjmjhdryX1I276Diut4WtW28D08f5l5HxXkAQvjKxoXVx1KA3m/bKoS6P5+nfttMQk8T2J+Nd5E2iwDM681A196N1WxJM7gIxiX91ZCOvoGAYEj9hfUN+6zkYyHmjwZ6NrcS0aSd7Yl96t+TrhP6lR+lq09DAeAQO23m96YKX2nqeVisbwvTmKd3+ABpP6gjRbcnduQYO/uKPrHu8fDkPqsyMkmw5oReg8Q0P7yJyj4+jw4B05kpkWngTrqA7d3eqcQQkNRquxBzlvy4mti5oXb+/mYcI1Fh6W/vP7oIBfw67zWdI7o5XP3mYXNrzho/U1WFbyu5tZWI00aF7l28Tzvx4/9WtYzLv8KtwfKIKyX76312vsufqXCnYDu5Z0FqyhoejeL6Hn3ifmYhzSvEOmYWgVbu2LOhRraHhy/138LX5xrcjfaMPD1He3sjHpBQQUk98QjI9W5L+LCvr1RPD7S0lvK0XEEW4Dm4O2NARzWJlXw4NPBEbEZZTKOH3De52Xkngzi1WNytoP5pbej40MPBkUei3rudRZLRn7wXIrkuwHN1Q8vpsQfztdQkPaI6TQ53Fqqti8OoyP1teW5KXezmBJQlBcDOWWZCWEBQVH3SqqFr+JYRVFuZkFL2sxfl3l07TEhBsZJdWiFTneq4LkxKSMkuYL+Bib9eBaeHDg+aQCUWbJ49ZUVSSutYCNHWLKqtiVVTXVPLHrec/Tfw4LCggIu57eJPBwS+R+ilQ+y8ouLCXC8mlWcvzNrKdNwlLSELlwUIzPjl6iT6Gaudxs7eSA++pR0o2kjJJaBJOhwXKciL0qys18XEGM6bWsvHsPSnEOhI8U7tSg1YUPcgpE3Tbnbh4LdwTKZtdUc0VhjPFRhFvF5nBIkSzHDD5Kdi67JON2YmJGCcn1QmLcioI7t1KzSwkv86oeZ6YkpLNkrmRIwoyEHeHVVrFruaKYQThlGfGRgUEXbhaSzzc1z4NRNptdVYMgCK+KXRm/zgI2drxYzq6sIt4k3b+u6lnq1fDTUTezSrmSTT7ZrBTEAHJjTU8apD79TLVobCEKIw99bTVVBm1NluqwMu7TXIN5nJrKlhsu41aobOO/CUc312CEWyUYClpwdENl0b0roeciE3NZ0pIhq1PIoiqImargqUyIPu4Y0XfwYrxsr8Eag7beQ6rP2KnQeq25Jd7RJ5JgoyXnK+XfjRSH5LBRQoM55/5Ugf/nnf7u4Py/9OBG1RnvOXz0VexvwwwbKfAnfdOP+iqNGpZ/BEiObjUETWuErX8L8vlvb61GCtQIQY0GYz+kirTwaeQf/TQbVbp87N37o75aI0X17w230Nxdf8Gk02Fwv9/uEXPM8lsfpvZspFAbdfQ+wVCj3uA/Qh4JGyDTMHbwnwz4r01nPszs/YlGwauGjf/0vYfd9vnTQmSM4fgPd0XGKGpIAxbu+LcGrbGL2d8WPT6p0RpV+/6WiA98eANpFr8rOFKBvr680caAQYHV9U1N9VVompYLA7Mla+xoQdhKK10YP+VDgfUHL9u5wgaWnMnCXl7ZNMxQcrGG5aJTOeIBV1qDFVck0ODlh3ZPN1ejUfDqYIMx+9KaD52kmOCetlOhmtrv8V5ipUdYCFE1LJeeKZBM+etYVzeN7ApTGFpdtJlUZrdph+4LxQy3DbZ2C94/y0JTWJ/RBL9UVvK+6b21YIEBhuN87kkMqC+NcSPf68cD6bUoxju/UI8oLT4HBQ/bW1CH8ZFXsRsINGoCrhqWCwLyxFqo+NOqoGkM2HpDkM/M3loiGGP3isNSTg8hkRH0LvT+toEwpGHXZPxVfDlSFLrCWuLwpbtWDIMlZ7IUORF3BzzC527yIfuBejCkaneOi2LSMSCzas45OxV4uHd60sH5A/DrZpzhCM7oUY0la2sYy38cnWq2OpEYShSZwRdUCltvCvSeLebXdYx3ingeg5bFeUwwYcBqmmow3GXAqGE9NGGYwVS13pEpY98USd7UF2aO3i+1Zvv63Gxd2MwlHtewhueXN48gR9nBTFHYSGswWnZp9UA1pvmCkKKqi4uaxc2+fMEMA624sWeamSqFqqqjpwFDND3rFaF5gi4pk5VMqqI3y07+oALR+mxMJeW7WFHg9C50C+frLR+gkdZgrCTGZYA6s9fC0AIclIKGyxrfZRqPd/zO72hpDUZYV1YNVGeaLzpbiHLkOxopv7V7ak+SnwevCHkkHCJkshL5tFlP56Pcy4v1KbC1V7YwgF9HLTTWtztTgvI50Yu7UPUWXBQmn0QSrGazLw9PXVr5UlKDaR/7W37S7Ptfj4BfUp42YHyUffXDSr9fHhNKxiv6dZZxo+qoD/nC+TUuURCj0WD0bzfKUKT6bYjj33TKp2nBDfj0FnnnatGob/droaDbc94mBP16jYXyKrG87F/tdBr1Zv2amfc2r6iBy0eRvP/YajeaTv2QwMIbVpXzfoX1J7r5H5eJwy+4Bjc3LPhPBtSoZvi/bQkYD23Ii/jDktGoavzR3Pa3xBeEMQ5/w5RP08/grVDcEF7K7xbwp+kBmGBtnP3kXWDAuxI8C2lZgzFOzE5nn6tPiFEDKQiebURTHbn/ocA93Mzdw9QozF4zdsfkv3xTx0o5ZGcKQxIN5ldf9lrhG1dAjG7cwtMzjWiqo3xzhclKk/FXUUXEuWgIpncZ6ZFYwkNf5YQt602naPwY+EKcUzaPGHzQhyAV81n7ou4UPslNOLpsgAYF0hx75JHAACTP53stuMfMo/eqEAx7lfHTDFPVgdvuE4MRbhvEVDMYuf0aC+G9zg9dbsmgqBqZmH/vcZOFGxC61AKmaNoFC7dM0Gxf/F52/vcrUD7yOst/pqnqoO1pPH4161FOVuAcA9jQPjgjN+9Bbn5hBREw7Ks7VvpdEQVe0CxjmuooH1HgoQo/xTUYYqgYjN5+o4yLVGeHOOIwpgWXirIupToP+vL4ZBUIHrorj5RNttDrkIxdNmoUZk+7vZfyXte+eZF0cAbucMm5aAVOxN1BM+lvqaPZZ5bnyZjUx/hSQZMYaO5EPooPN4Lr+s70CIhOeVqFR7vCoVlh0AoqhRgqXUd7xuPOzTvn0IdO0ZwW9JLghpWcmdmF2cfxwnMuhjyNce7H1Jp8oliSazZDxMvZNZhOt94pWbtDWKcma8D9t9znYXxejt9oLbjHjGNplRiKVqcfm2WqiucfRF0kDUbLY12tNRg95gQX4BGIP/Pz4NRcPG4Cs/Ie5OblFFUSkYlm+43RpptO2XujmMdHUXbm2ZVWWvReTlfLUTmsmhlMDg/uHbc+NEjlh4ByUTGk/MJCE9hk0YUyJcKJpMEYK87VSoPRY+7pfGKcUdjwf5mjSRqMlF1bb63J6DE36KFgHJDjaCTP11abbjp1TwKLi/GRqpzTK6y16ObLL1fioSizU4g8SPav8GfeHVcLGq3XukTCNXW5+2w0+m26g6dD3MS1ZjTGDwGChRA8CWaYOES/luUgBfcnPlJSg6FG2OKPKxUyrBRUcGP1Ryrjf0dLBQUIDab97ZYmLF+f/2Ew3NjHjY+3hPd+vk6j0aL3Mjauif3grst+Ea3kNITP+wSb/BFDWvCpf/RhpGqj1Q4+ggP9U6WZYXgeDDX22UTUhU8q3+6zaYTgv93vCY1Bcj9Yw439tuB3aE6H3BDuhf/q0D4uvCBUa1JhJTRY+uZvEp17UBlj/Ykaa2McjKmMwR4Z4tS2oWD/SFIeLH0tVhe/qgeVMe4ISyCcCsdfqYoEYy5E67s5RTCNwBpydg2BaX03pgrGsiYVCX7FB32K7vxISX7DCrbTp8CDtmfgqXB1jIMRbLLkErGDgDPByoLtdMzX38SrIDSYNJmoe+htA0Nwvy2pQtpo1g5rGO63+S6RVddcWWoEGy+NqRCxRcpPT9cxXytY4Xnzs6MRrHg/uPbGapyrKPCaOLTJp4QG0/q6pQlzl/p8r8EwrY+bCI5MGs3efBPnYESlGjvFSlY1mpURNUdoT83VZUZUhvWOdPEl9UU+I0l5cJPyUk4UTIlgc6dY0uCuMAYEd8OHGwiCLZZfqZAIYQsaLN0QKTPEzrXcJAqeurzdOL9Ngm7OPj1dnT7S77Ew6Xy2fzRdZXJAWZOmkX+tf3rQVhW2FMdGQ8EBW1WmzR58clN7aZkxbLzsonhlD60Imq7Ta10S4TuRBr+puL55qBZsYnciX7wWgmJ1V5cbw032g19FztWHTZZdfiUxoCHPZ6Qqw8ojEyWG5masJCWlsQjerzpnpw7Req0jwh6Hc32NBV1/RmCxgtmt5D4iDa4rS3AfgjfgVI4wNhQ3XHIHSah/w44WaXBt+Q03HNOM43niMZMv09Evw+fpwyZLpSXDG/fzjgxCMmR0CgWOri/YawNT9BZfwCWpOnppty4/BgmOu/Oyd1jB8HCfJ/jiHL4TrD5y/8PPSIJRjK+0BtseEW0Dy4oDfCVZ8iQxLlEU7f+eF20So2X/GUtvNFtDHLbCGi4u+whTGk1s/ly++UNA7NtKcdQ20WDeL4u7NOrMfy8WAxxWw9tdQxphmw8PG4Qa3MQwXIMpn+zPi2O04fjERoreH6JFAxRl/ceWLvfkF7khaMUvS7s3UlQ/Dpvxh5v3r1fyiDweb36rNbg+b6c1DFt74Vbx0jb1pcFD94jyWlzGCn1Hydfghgdeg2HJ/r/C8ZdckTDvoWjbXxDtRmMlR0lrj7KDj9Bg/aUXRTMhfAc0ZmlXKnPiiQoUQ267WtBgs7FLHR0cha9lc4d1VZlAHBHEbaNoz48UX1t+YgKDorcwWmxA8eExdJpQZblJrub4vZaJb+XgMHdoV5Xxx8px2VBCg+tyd+Fc5TzC3uRTXIMp2vaksDwylk41W3NDOEGRFdjNEPFyvKxgSHWKQnWRvoqbuhl3+G5SF0Wf7R8lX4OlnEhosMqYQ8/E3UT5PBhSsT1SRE7LWqXBUmYIK6Voz48SORdh+eP8XG4Rfe31qSkq9O8PPRVUh7IO2tIZ434Sb6SJ+yPpB4wVNF0L7ulC7O+gSN7OwQy1cf64wbyU9XiUjVsiijEHR8c5eGQIbijQ4OW+W0ZoU6iGi6IrpYDL0GD8iV6qjn2UaAeKKF+Xu3swDA/b+6iOkLGmrKTu2Sw2kKztg2CIOel4Of5R7V1PKxWtsYfw7RJSA+X+LNBgR7+tw/EGLD5fJSrZQsNFxci1yDT+23C0QIOXH3DH/Wy08GKTRf7mjuZdXNyFqkPKH3BQDQ92DYFhmz2EZNipNOsUZJhNf646+QMDYv4YxObX5fuO1LLcmCKcBBDBD/fD12x4t1370E0dL4ud2PQmsrxGKqOkBlM/Oic0ja2Ca/9xX/rnyIF/mxp+UocbIWkNppr8ESeas6AvSBrMRzHu2zC3PwcZNVLxDeBG4/EfEgVJVRMNrvx1IqOxm7P0o0oYdnRcI63n74kIocHNDMM1mPrR6ZrY2oYTExup3X6PFxvTTIPlNwTl5L3fNP0vQ7VG/JtM6B/H7XpHzBiU0uCawlj/LYunjhxgYWqgow5TIKEGv4ldZkhlTA0iDRzNNbj2UdyxzUumjhhoYWqoo4ZfLD6D10yD5VUkWXu8JsoSpPf/SHEgxoViMjSYl759AAzbeD9BMd6lpQY0vSFzV7msWk16rTtwDX8sHbdNKkcsPzmBQe22MkFsAFmDOTHLutL0Bs9bLXWr1ev3xxOpmxwNri64dtR96ZSRA81NDYVcSRqs4FNcg6kmy0lhebT1GvwyeLoaBA/yaMUjgLVXHA2pjCmBpBGkuQbLdSLuDqrpqmviHBr3WrMYaO5KfGimmjqLyRMDQYtDs1wzhJWSnYuUHiNpMPbkxA/a6kO2JOPNrEzdYaOuPsr3UQua9Pr8/K6wsUNsNcbn3d3SD9a2O0O4nntliQEeGc7kGFvtstY3gVgMwDWYQoNpsPFQm54MdZud90XTfZxD86GZX35iIoPabYV4ECBwEcMozWzNLa5MVs2RSr1TGzFPm0IjvmejvuDAGC21oV7pSk/mcA0mGmA01MaMoTHMK104SW2h4bJGc5nGfxuOxjVYgGkY7udhu+6K5n/EeNXc0ZU/4X52lu4sROJB6+lCSIaMTiHl1iaEiYMp9LGHS9hXnXroTw+WPPPNCZ+pTuu2MoHDCvpRV+N7P2WnX6SRVliXkhpM+3vtbdLFGHbJ+W91jb8nu3wIjH53Nx+7va1pHkw1+eOaWPaaaLCona8evgvc/D8jWuN3nsTKcBMNJn5Vm/orMdMU1Y7wN/Qh5cFNDMNXXwkNvi4qzyc02FSOBrfQENFN0Ib8hF/dxn+kwX95ZCmTByOlMSss1dXNJ6/yDjqfcC/nSfIWSR58F8+Dh4mOiuARIK3B6IuLKy3V1M0nrfYJuHgjNe/pra3W8vJgRRVJNFj8fNtnanD1hYVdKGrTgqtQDE33GATr2keIDjCLEAl8KtDgFXFiwSA02FSOBvMyPAfCuvMia6RvIgoPGRqMsS45W6pr9Jrssi8w+vrd/Me3t1lJ8mDFn/IFGuxECsvWa3DddefuVIrBkhjyoC8yWE5n5qbhebDgTJmwpdIarNCJuAaLd6REoJTUYFrPtbeFC+8C25oNzeR1EYVmiDVY4twmGlwWbm+soaHC0DXr3VOPqWm5MOiBOAzkkEExbtwKU1h/QeTrulvrLWDDJcKMkMgyde2j8D1sGS9Cg6mGEw9kVbOTNgxQUbXenixZLWs+NBMnaChqUwKkdtO4KRt70+BhewR5cDNWMuolG9OQu3soDKlODXpdEjKnK7PfhttSSbYssyWXExpMNZh0ML2m5uZGvAFb7xCXt9BwyR0k98c1uJnx34ajCQ2mGk7yy6iturVpgIqq1bZU0bk8mZMt3oVFXShqU09JS0bShj402Ga3MA9uxkqRo5Fb+ILMSO+bR8fr9BfsBAvJv7m23JimuzAqadtAZo8VsbLHQ1n+albdZ2kwWvqfMfRG611vhaeE+Gim5+doMG4Nyt82oFF9Nn7WGmuiwfyGqAUfqer/882XBFxl3B9mtMbBXm+F+8H/TINbaoikXvwpjszfBsCfZoUrocHY8yNj6fDgnbmiYztI9vZBorVojNgPVrHZnSM+aYymbekvXovGHz+lw9Ze4iN2aIbHIDkarLiiFs/gyAwRIg8mfwFFfZH/JG2K6pgDhXhzeHe39qdrjffHN0IkfHgIMda3ToNR5J57f7rWhGPSD9oiXEE+8ea6kzFs4HBVtI7NR/HnMumw9a4HosDjZXoOFGuw4k+xttBgYn8IYk7wF+7NkwiQaTT5mdgPVrHZKzpdyUeR++79xWvRip3Ythp8eiqDauQkXhchAk94LlqxGS1qMO/8QoPvPO4V3Y8NORf1c6ash/GaYCF+xQ83wTqzz8SsMoPNVieKfI2mbulP15p4VOrUNJ/Lk5zJoouOW1enbLdSZQ7YcFsk2HVxTiawoWMMOWeqPD/fgKr2vV+O5BRI1RUnMxpzyI5swX5wq4Zm3O+cmKVdKfAA1yMrLBhmTnHiMw2STiGrvYJPcQ2mW3tkC05FpG61VmUO2JiIj+OKGy4r3mRr8DfhaFyD6VaeOcSzbbVJ23BMrjfFU3YZjq6IWtCVqj7aN1/yOFxl3HIzGnOwF344XyYr+W5CMWKmBVvPm2fZ1e50CXlbB7nv3g9Wm+wwx0hzzCHpwVDRDWV48LM0GOP8slC/Ucvm96gHGLsGS7/4YaqpjLVoUsJBWovm/uI84k/XI+9v5WCs0re3Tv3Rh9k4dA+uqc00GK0v/HWaYSPT7E/PyHc5D/nXjv8+RLdRdeBvN4hTWsS5aOkEvbV5sMKGcKJ/HzH998MX3mUXYayCdyeW/M1k/rUbfwSrxbXo6guL9Klaw1zPZ5TWVLEyo3ZNM8W/3I7YD8b43IxdQ9Upar3n+cY9ZJUX3z7pOEiDIjkXzb64gLg4MutFFbv0/oXdU/GLZa9FK66opXOwMgJCsBYNQUxz++MpJZXFWVf2zjRXocDmzteEowxacXllb6aqxUzvKxkl1ZWsnNgTblOsHSPwWVQrNRjDyq44WzBVzWf5XMpkvaoqzYw7tXGq9bJI4ulSIiegWSyPzM6/E33QI+gBD+NELdSnatmsj3rAYtc8T7/oRaAR7Qcr/rQtNLgqbKYm+YiZTIDN30TSvYap4Q4/EJv/ouxpygmH73CHi85FK3Rim2owN2axPlV1tA9xAohXeHXLSG0KJHo2SaEZMpwrnQfjX5ig1mvaRu8DfgcOHjh09HhIbEphtWQolDcw4dvATB3rIT2ZopN6REmkPHaFBVPVYva+mOzi1+zn2deOb5pq5RBFPKqO58F0a69s4VSMd3enjTqjz+rrgsObxFINrbdjVE5O2iU/z2D8MA7W8OjkjwY0ptm0HWHJebnp1/1XDtWlqQ7YkIif0mr10Iy7GCk6MIpOUdPVUTWyDyUe2lZGfUkaLO7RfM59r2HqjN4u8a8wvsKGNw8tOcZ/G44mNNh6pygb4abvGKbB6L3mZ+HxY1mOri88Mc0Q97NnZFLOw/vXjq8YoktTHegqkgwZawbyIpN4v/zEJAakoqrZ3y1VtKwrKF//1GcUHVbXUOu16pq8JJj98/Yff5i+44ZoZinLfUqfyWqWbmYd/tMQJnZJoUZdyz+dZvzd5EyW3LXoWv6xZf8z0xRc+38Q/ZOV/X/SBFObpnkwHq81ub+usv2oTsOf9KUwPw2c9SH+hTDW20CD+aiChtTc+8/S0R818KrxfWt617/sD/MJ3C1qMMp7cHCSkeDpWoiuaznVya6vOA/GR4TnVzaO0Cf+DABF3Wyi2xFX8vPBSMahSYaki5fbWcrJg/ktVNRsSUrqeVDZwUfkwboTV7tO7KFGPKNL17dZc+Exea8LeXZxy2QLLeHTwyoGVjM8LhfiA2JrNRif+Bde2jqJdK/vZnpGFwnWD9CMfSM1CRNomr3G7bhVjfG5WYcnktBMcZqBcxXtByv+9J+vRXNvu/aiUXTnXyAtiMnuV02H4/rSyxtGih0+YZP/evLzwYqipU01GKu55mqpCkGwuo6ull4vW+dDm8czaaLngxWZIcO50hpcm+E7Tlv6mW6IomE+2z9dskosk1XD44NjVCGIMWxvjmh5Q0CPVxTjPrm3OMq6Ws3aHvOMWH1posF4L9g3SpPea3lMBX5yjZflPUIUNz3H7bwhHCJrs86s/r67Bo14Kp/ZZeCM3QnCI2OfpcHom+tOJlSIovvDCYFVMlsn+00iD5ZoMIohGd54AxyJR2jkN1zW3WQb/004uokG493fZ6Qmvedy4okyeY6uyT29yra7utjPs3bFvxA+GiCblSyqorGRc36BDoWiRzwTLN2pa4KmMSFIc/zRp1IrgqIL8cKvTk1kQIxpZxQPF+Q8WJEp0tUTJdkl/JQUfg6rQbrnyChJNkv4M9JQlMtPTubnigRVRhmSPfVsLDv77Rf6Ew6KG8Krwh7ce3c77W1pK7YAcQgo52lm6u27ecVs0Yp0kzbWVxek380s5kgeHZEUwKqLs5OS7mWX1Mh1sLhwixWJSyr1A6HBxIVqigMAABlSSURBVLnouqrijHsPnsizH+UU52RmPWO3nOu0XC9WXZJ3/8HzSslSocD7tcVZqXeynr4kzQAQdklGSkpqDqtKVuAp/lS54CQFXsuWt6Jw3eui+2k5T9nkE86iy9vYiaLbyrCfx8q7m3Qnu+CVrOfTPtcMburW/kzt0dvjHrAqyisqy8tLCzISgtzGGtDUbA/JH6RkmNfUcoTNyk7PLaoSb9w0LSDTp9UlD5LTHjyW0caGyqc5GQ8rRIcElbqbzCq+9Juf13CSVf9uR9ezn2Rn530hyVAibkmOaCHG/oEGt6kdylsMSn5hAhIN/sIVtRCaoPbOQ4A4ekoXP8Iu8uybhJWmcHfnGx1f8DoPahHb9hl+gaPbnj/Q4LZn2sn7M9BgEBKtJlD38KeJegzTH7afvlVQzsUQpKY4PcZ3qZUWs/dqJb67sZN3mVbj6rztBY5uc98BDf4X9R/loocbMldXvbvTZfKx0vaZdAPXdCYCVZln1/1gqYsfcqBSKRBEVTMZtmB33PO22KroTByU62WduEXA0W3rYqDBnbgztG0ogLsBAv+cAPKm+ml+1t3sIlaNnGMQYD73TRAAjv7nnUVwB6DBQIMBAUAAEAAEAIH2IQA0uH24t9UcCtwHEAAEAAFAoPMSABoMNBgQAAQAAUAAEGgfAkCD24d75521AcsBAUAAEAAE2ooA0GCgwYAAIAAIAAKAQPsQABrcPtzbag4F7gMIAAKAACDQeQkADQYaDAgAAoAAIAAItA8BoMHtw73zztqA5YAAIAAIAAJtRQBoMNBgQAAQAAQAAUCgfQgADW4f7m01hwL3AQQAAUAAEOi8BIAGAw0GBAABQAAQAATahwDQ4Pbh3nlnbcByQAAQAAQAgbYiADQYaDAgAAgAAoAAINA+BIAGtw/3tppDgfsAAoAAIAAIdF4CQIOBBgMCgAAgAAgAAu1DAGhw+3DvvLM2YDkgAAgAAoBAWxEAGgw0GBAABAABQAAQaB8CQIPbh3tbzaHAfQABQAAQAAQ6LwGgwUCDAQFAABAABACB9iEANLh9uHfeWRuwHBAABAABQKCtCAANBhoMCAACgAAgAAi0DwGgwe3Dva3mUOA+gAAgAAgAAp2XANBgoMGAACAACAACgED7EAAa3D7cO++s7atY3sCpel1eUSnz9bKylod9Oa8hxcnhRw/4h92rRL5gLV/OfnBnQAAQ6EwEgAZ3Jm99Ff3rAEB4KestdC2nrdzkuWvX7m125jSq8cR1Xnu8PLeummWlb7g0mvuFjEQeHP5hyPyA5MC5XXqtTeR9oVpk3Lau8mU5ubrXMcstTCcczPuSsw0ZZvxbAgzMrgCBDkMAaDAYiToeAW70itlHC+oFhnHPzlCjjzn6HCV+RctP2y8JfP1lbOalrO/Td30SgnKeZ+a9/Ir615Dnu8G3oEEigUj+mY2r9t0AufiXcXSHGX8lHgcm/VsJAA0GnbzjEagIct+dLZJAoQaXCDQYw4r8t+5/SJKrNuy6b2KXdRvs+QD92iMj8nCf7dh9ZA1uw0aBWwECgEAHJgA0uOMpUAcOl68kTjUF2YU8UV1NNJj/JiNkl4en+5bgtNJ753x37DiZWo7yUaTkxsn9e333e3n6nE57WSdgWJMdvn/n1s2Hr7FKk0L8fbw8d5+9hxfGP63JvviT39Gf/I8cOXbE7/R9BKlIPevnPFzHdMqWAwd+intEZOHV+Vf89/t479vncyq+gMNHMaws+fRez63uQfdZd8N8PL1OpFQiUrUc9dnluTs4tRRtKE2LOOK7e/vOEwnFIlGXZWTtg3C3aRaqsJmdxwG/g/6XHqIohuZGH9i5fcve6GfChmC1uTHHfbz3793re/L6EzZuf21GhK/nNveD8WXPk8OO+O7avudcagUmggaiGhAABDoHAaDBncNP/+KxtakGo7yqwhvu1prDZm87lhS3sa/h/Ah2Q57PKMOJPxXU85EXscst+6y4Wo0Tq68pvus9Rqv3RJc9Fwt5KFLg873xj4GlCMavOO8wzSunFhezumzvqcsiuShSW/4sfIFR71VXWawX1bUYVnx+1bjZB9KqCOlN3DZxnEdCJZ9b+Sx+82DNoXO2+t+J3WBpYB9V3bSWJ362hiMWb/WKelSNYU9PTDGyPUAoumwjEW4V6+HBsWpDtqeWskrLXxFb3dWlmfsnaPfZmMrF+CjKinIeP8vvfiX+c8WNrZPGbb9ZgTVUldzbO0bLYtKaXZeKOBia72tr9GOQcMVeMAUB/wMCgECHJwA0GGhwByfQTIMxPsoOnqpivOwKFxdaIq+tun/O5/S9V3h/q7u6vJvpinhCX/koN2ZxV51ZIYQkY3VxTt3NViXWYg2PfW2NRm84ffNRGZdfV3L7Rh6Rqr6JXWZsueEOgt+2Js7BtNeqxDrR7Kf6tJ3uwG3pPIxfFTRNxcjxMp4W84VnpwW1hLKJwnXxq3poTA0sIzo/N9XN0mDReUJZ5RpZGTBJfbj0WnTdZQcTS0KDq686mvZySXgjctPrc3a6g7beR1GMd3FJV53ZYUSr+bXXVnTvuTpeXKzDDz0isKJ2/QOD68qyf76WWYIocyte4Z24hNwqcOi9DfmDW/0TAkCDlem3oIwSBOqri/Lych6Xc+QOplhl8cOch6WtjFc5Gqw+0ucJaVeY9/z6sW3rNnju9jvkOtbAyCFWosGGvVYLpbTu2soepk7XazE+UnnHb953XegQRcVg0Ky98WXEKi5Jg7l33Powh3rliauo+3llN+boA4UorsHqI/0eC4+MEWS4MYsltSA3XHoZOcQKOPDS3Pvp2UcIDnLLM1KRBiPJm/oyh+zOEVf3Jn5FN+Yo32cIrsGGPV1uClpaG+/cw3RFXOfU4Lp6lIcofjXUCTcRmoYiUnrFub/JeL8c+YEndcmrm1sGG9lsuyWYlkl91MrIVHhtfRXeHZ5VNxd7zouinLwnLGIOJ11jbUlBfj6LI/2mwlrk9jVwVachADS407iqo/dMbsyiLhSKzoIoGYMLDhkpPm2nD3d3uNzKhsjRYI0xB4tF258oK8S+e6+FkU/wTKguwaWXsUMsu+pl2RsiD8bVkUhtMbEGY2WpyVlv+AinLCMuyH1yj17OCbiSkTS4Lm/3YJUBW/B0UxAhvOglXdWnBJQRebCG7eGnZEkQarCgFlyDjUWTAIkGKzBSrMFIXkREJlGjOA9uyNk1RGXAtrviJI97eXFXjR9OVRB5sGFPl1v4ejXG77wajDw9+D0daumfpt0ZWapZX+g/uUtXu9NS7mhBmerueg5RN10YzhLFTwvlP2uIYJ/5UQWiE5M2UQgR90Fydg5mQlSTFdfFSyzC+3OSNvahG84Lr5Aq/yVsA/fsSASABn9WB+tILuwoPbb+qc9IGIKtZZ8rRisvLOkGG8w50+qBj3t2hqrk2SQBeXbwFI0xB8QazImYpWW49LLgGFflaTsdg6VXykJ2++Q0oNyYRQaSPPjnld27OV2rxdD7HpOWnH8tQMfL3DFm8Xn8oBP3qmQtur7w6ERjW78nwlNRnBTXft0XRL5EcA2eqmF7SGrQl64lAc+DrwrSMm7aZkvdeREcPqrAyJqwGdrWHtkoyo3b451CWMWLcTDpS6xF1xUcm2A0xvexMCNnJ23o131hxAsM1+DFBpI8+Lpz925OsZ0wD0ZepF8KCw8JDQ8NiwyPjIo452rDhGjd5+wPj4qIjAoLiwgJDQ8Jj82QceIMKw6crqc+yqe15+Rrkl37Mrs7Xq34ch2Ze3WZIQXuT5o84XVh5ZELjHR1tamas8KInRSxAWjJyanaKtZeGeLJlvgj8MM3TQBoMNDgtiJQF+tkTIW0ZoXJWEyrTlzfm6494ZhI0pTpVOjr26e8PLY6jzNTVzMetdR9xw7/+GKUj7BuHF47qadmN9vlHkcTyvC1PrQy3nPy0CmuR0PCjvvsOnZ0vVWfCcvW+SeVpQVsntlPS9fKftvZzJq0M1tnf6ejPWjO5uDU2x5jbRZs3nciIir8pIeT86F7tWjNvaDNswZodbG23+IdXVCH8ZEXyX5O8x22+Pkf8147b9aqoOwqDCtJOLpmUi/NbmMctx+7LphPsMm1cO6f3TbXWldrwCy3wLSK7IjtC4fqa/T9ceOpWy8rZBvJ4aPo62tuI4bY7963ac3hVB6K1aYGu88YoKU/ZNHey89QDCu9fdDJ3tHd97j/vvVzZ7oEZtagWE1KoLtdPy1da/stIdlV9866z8HbNsv9dGpNWzm0fe7DTXXrQ4O05kRUtRgkvHvu/en6c8PLWyzZtEBD4eGxamq24plN209keWkb+9CoJtK7A7xMD2stm7UuNjB93LFy8jI1kQQbLYiqbHtLmra9fdwK2iWPANBgEJHNCaCslEA3+zEDzEzNLCz7Ef/6Dxiy4GShvDAi3seeHxnLgOABxMElqZJv7m+3VlEfsS+T/FVQbT40oLWsJ8UviUSwjlPLIa8VN6uLx+ZwMH51aUHOw9Iq8VZrs2L4Ejqn/ElxlWC9V6pRsgq3XECukVg1q6ioUrz03dwpGLus+GmlYLm7+adS7yCs5Au38OPfLdvT4coIo2i4T8vTtdrrzqZwl/nnZcz5Wmw4wvppvCpstTNX9Bi6fFbIi6QAd3vbAWamPSW9YfDCE4qf565/4j0ChtTnhEq2ZrCysHkGhvPD8vzH0mHrnXmiB8/4KJ4E66gO3ZMFkuAOF5DyA6ONTAUa/MURtzgcfJECSOmd6PDQmHQWuVdznt6+EB4e/1BRhlHPuuw2ZoDtav+4PBandRtm3MS1ZjRIbfpZwUldUbvQXL8xmiqD3O+IH/n9Rpm3UZ8Ucft8SnUPfb4fvTdX4dwCxdDi1OiQsNiMcrGXsYoH16KuZrEkF3ILky6GhMfn4A9ofZ0X98JifQrVTHSMTkGlyK315jT1aQHlpDLKh339oz3DYPpwH8GD4PJaV1cSu8l2oO2qn2JzytkKZ3XN7sAOnMqE6OOPlorwIjk7BmsO3Hafyz47XYXWc22SeGJHJMHGiy5WNbsJqWlfiT+o8WsTABr8tYl/nW6GlBwdy4QgSM320FPRdBu5494PhiBqN+ef5e4aclM8bYcuv1BEVm7lO395wGQViNZnUzIp30WeBf3YhW6+Kh5/vBW8vg6B+icHJthsTm166keKf/2TfcNhCKJ0tY96SViFlJ+106ZAkOa0QOEyaV3unqEMCKKaLI9TeKs2bBSSuXUgDKnPON3i15Giz3xH0+EB2++TYrU1Yc+LWWZI1ZoTxpYflpw0j++HOZ5/3nKuLIMAL3qJPgW23pEjXNt4eX6Rkf6MYBaGci8t7ELVWxgtPMhNJMFqw70fSKY+8k2SUREo3LkJAA3u3P6TGlXJ/bO+0HsEA4Ig5vcHhU/REBtUEEQxWHq5mlyS9HPdwwPjbDYnSVbPWgmHl7qxDw1S+eFkhehCtCJqkQlssjhKkmyJPiLVK7cVoMznEqhOdB0yctstRfkrkuJmSYMgit78SEKHKsPn6lAgCKJozw4nVjIaCnxG0PHf54TIVES0/Poht3Xr169dp/C13nXbuRxxzqfY18iLU5NUIHjIHsmzWPIIvPnZ0YiqMu201NyuFWHfkLfXBoatPLLkrf835PuNt3FLJb6V7DOCFkna0JtG67XmJrF9UJ+3x0azn1sqfvyed8ulJ40xJVCwXIQnwQyTpTGyTn3Lazt4/xsiADT4M3pXp7gEH2LwJz5Uxhx8iq+GcVM398VHXIOF0fL2zxpy94we6yvOmz+jmezTdhoQrdeaW8Jty6qEteZ0fbugks65N/kZBDrOJdy7PhMGTvVNkj/7qb2+shsVT3MdY3koxrviaExTUVWBIIqhwyX8pFip/wRVfC1l8imW7GVYXuGdqxeio89fVPiKjvk5u0LJAKi96mhEpRrjZ9dbIok//EM1EJ0/F0l7K8K+/MQkBrW78w05KX79w92jx+0nP4PeoklSBRry99nAFL2F0fgWzKuYZd26TA8QHOJDcjysYXjEfvyvkqAlJ6bqqI3ybWnjoCUaUlWDwp2JANDgzuQt0UCjlM11eXuHCkT4cDGCIXc2E0mP/sIouYtvvItLzKzs3dw2uzd/bXb3PJJQ1pIBaLrHIBhiTjxBPOP45t52axWtsYfzlVlkq39y0Wf7ZllVu2123+g06/vhNsNsRk5auL65bfg7m1bOHD914brNsj/Fb+vmNGv8lEVyLhcWGDNq8iL5d3DfuGLWuCmLFRRoCzMU1bJp9fzxI2yGDbMZNnLyAkWNFXhwrZ2lBtPYduWJNNmOY5+fr0eBIJq5awqXl7zOgqY2fuYEDQgSbMdWnrPTgiCIPsK3SLSdoVTgya5LKZFAs3daw5Aq8fRzC3UhZT+Np1N7rBZ+RYm4UuXDnh0yU02kkeLLJT9wYxabWc/bJKMvuG3estnDX3gqXn67Kk79wICY04Jr0PqHPqO0LDcRSTB+jL/syFg63G9rGsLnJG3oTTd1uCL4hrUWmiyxTX6loEynIwA0+NuN+/q8nYNhCIJUx/oXvbm32RLf/OtiHyW1difVmXmXHfqMdT+HP47Z/BV2Pv5hTYvxXR05T5tCM3e9w8Ua8g+O1VIbtiNDqaO8KFqZcTUqtHm9xDtnT/hsWrvWxcXV49AZGbaFhoecC9i3zevQaVmWC+8ZesJ7247Dci7Hy4Qe93Z39Tws+/4CM076bNl5REGBtjAj/KyCWgIPbF231sVlrcv6HQcVNZbgcO7A0kF6xt+v9k8skeO4ioBpGhAEwd953r3vOQiGh3pd24MvP8P9ttx/Fb24KwX/bHumvNXaNu87r4N+VMdrlLs+TKqxMmAyg2pCfOuZVOuUDnt26Gx1iu6CC3KOCnJjl/Uet/ms7IgKjUrMkzuXFRrJubhIj0Ifc4RVGevUQ98uUPJkPDdklgatm/M1bmnAj7rq3x9QapIq1VVJHMD7nZwA0OBvOJrRrB3WhAhPOBhDHMei6M4NV7DthBUdmWTj+eCzTqAIMdbl7xkCQ6pTg1+yQmcZMPttTJa39yw1bnbyXtQR24KWXXCysXWPl7OMLPAX9uTgGPzUAN3GZc1wOs3CNbk2Gd/Sh+ChO06s7EHFc+T1N0kn7KRailYmn/Hx2rVrp5fC1669B2IKlAqqNzdWdqdSDJZdEny1p+Ko4ETO1qDoLLjY7CsqlQ37lycmM6jdmn9flbCN6PPDk4bL3y1uedzg3nY1p8EjfG4fHq/TX7ATLGxRXayTCU13UXjy9gHMHk5xLU9tpbArxgI+7WwEgAa33Jc6bwfgZXkOwkWYaWbRDd8L1pkTUqmovQjr3GzrJVGCL0/+vFDGv0mRAg/YcGilBaOn0xWF1XVesB3ecqwscrHV7HPFsvdxJTFQl+NFTNNgJhOmGjle5vI5VxyNqBAEm3Q3okEQ1dAhVv6hpJrsK6dPngw4ofh1KvDc7RJlVrPrHnrbwBBz/E+ivxUtsVMGcN6t1WY05qRTgr+NQS6gXNg3PPAaDMODd+aKvxK8SXVYydk5VosvKJzENLlE6ldiPgpb2c/razAjSJIE81EMTdvSD1afvHSuseaYw/iu8Of1NXDVN0EAaPA33QGQrG0DcREm/lG0Z4YKnkKR3+cbCoLnWE3Yc/uV6KHG1kY5+mz/aDpFXVdH1Xhe2AslT+LIt+eb9k5r2SpfHsn2GDl+v+IvkRDcjZfqakEThIfW7HB8n+J12Ewt/Hg0/o+iPUv4x6C+hiMqQ2ZrQnA/93tKJc3Yy58mMWkWG5Kap+lKhT3v/EI9qq7crzfHY7K+KGi29fjdKS9bmsrIDuCKkxMZkIqqZv/NadJHzBoe+46iw+rq6r1Wxss7IPk1gMs2W/kwAyXbggDQ4G871hvyj9uZqFDxPT+t79ZfV+boR21WkOPQgeNW+IRcSckrYcvLEuRxq4tzMqFCFN0ppwrBBL8tuuhnDJS8DM/hP/wk9Y3Wci1B7u8d05VBoapbLI+uJOZM7CsufdVwXaaq9V0bq+jpJnkx8HnvE9+5QdGdf75WuSajGR7fwcxxh8VfGy5poxJhj6Rv6Q+rjPNvYamgJjfQYdiAsc7e5+KScsuqWxXS3AvzdSgUPeKZYIltOJyq4B+ZEKQ53l/qr29Jl1EOwuehBld1IAJAgzuQMzpOr+OVpZ3ZvWbupNFDvuvfX9nvqgQkOwwBdnHu028/weLd3dIP1px++nO+Yxlf96YzR/spc+QbZaWG7HKZN3H00EHi3tDid1UCQQUElCMANLjDjJvKOazj6DSwBBBoZwL1j7xHqmpMOqFcxk/u6Wi6x3cMvVmn/8nRB9BhAYG2IAA0mNwzwc+AACDQmQhUXFluptJ3XWLrkn6kInqRidrArU22aTtTw9t59tMW2gOaICAANBh0PEAAEOi0BNDyCw69NKw9U5V5nEmoHNXX1/TVstp6u5P/kUegYd8GAaDBnXb0AVNRQAAQwPhoTfr+Cd0HusSVKnV6GX18dm4v83nBj7/aF4+AEQYQUEQAaLAiOt/GPAu0AhD4xgnwqlklFdXKaXBVGau01af9wSgBCHwpAkCDvxTZb3zUAxkYIAAIAAKAwD8mADQYaDAgAAgAAoAAINA+BIAGtw93kCUDAoAAIAAIAAJAg4EGAwKAACAACAAC7UCg+Dnr/wEjSP6CvlyR2AAAAABJRU5ErkJggg==" /></p>
+<p><strong>Cara Menentukan Tranformasi Linier:</strong></p>
+<ol class="arabic simple">
+<li><p>Pusat titik tidak berubah</p></li>
+<li><p>Garis lurus ditetapkan sebagai garis lurus</p></li>
+</ol>
+<p><strong>Atau secara umum pemetaan T adalah tranformasi Linier jika</strong></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(T(u + v) = T(u) + (v)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T(\alpha v)= \alpha  T(v)\)</span></p></li>
+</ol>
+</section>
+<section id="transformasi-linier-dalam-matriks">
+<h2>Transformasi Linier dalam Matriks<a class="headerlink" href="#transformasi-linier-dalam-matriks" title="Link to this heading">#</a></h2>
+<p>Transformasi linier adalah pemetaan antara dua ruang vektor yang memiliki sifat-sifat tertentu. Dalam konteks matriks, transformasi linier dapat direpresentasikan sebagai perkalian matriks.</p>
+<p>Sifat-sifat transformasi linier:</p>
+<ul class="simple">
+<li><p>Memelihara asal: Transformasi linier memetakan vektor nol ke vektor nol.</p></li>
+<li><p>Memelihara kombinasi linear: Transformasi linier memetakan kombinasi linear dari vektor-vektor ke kombinasi linear dari bayangan vektor-vektor tersebut.</p></li>
+<li><p>Representasi matriks:</p></li>
+</ul>
+<p>Misalkan T adalah transformasi linier yang memetakan ruang vektor V ke ruang vektor W. Matriks representasi T, dilambangkan dengan [T], adalah matriks yang diperoleh dengan mengalikan setiap vektor di V dengan kolom-kolom matriks, dan menempatkan hasilnya sebagai baris-baris matriks baru.</p>
+<p>Contoh transformasi linier dalam matriks:</p>
+<ul class="simple">
+<li><p>Rotasi: Memutar vektor di sekitar sumbu tertentu. Matriks rotasi memiliki elemen yang ditentukan oleh sudut rotasi dan sumbu rotasi.</p></li>
+<li><p>Refleksi: Memantulkan vektor di sepanjang garis atau bidang tertentu.</p></li>
+<li><p>Matriks refleksi memiliki elemen yang ditentukan oleh normal garis atau bidang refleksi.</p></li>
+<li><p>Proyeksi: Memproyeksikan vektor ke subruang tertentu. Matriks proyeksi memiliki elemen yang ditentukan oleh basis subruang.</p></li>
+<li><p>Penskalaan: Mengubah skala vektor dengan faktor tertentu. Matriks penskalaan memiliki elemen yang ditentukan oleh faktor skala.</p></li>
+</ul>
+<p>Manfaat transformasi linier dalam matriks:</p>
+<ul class="simple">
+<li><p>Memvisualisasikan transformasi linier secara geometris.</p></li>
+<li><p>Menghitung efek transformasi linier pada vektor-vektor tertentu.</p></li>
+<li><p>Menyelesaikan sistem persamaan linier yang melibatkan transformasi linier.</p></li>
+<li><p>Menganalisis sifat-sifat transformasi linier.</p></li>
+</ul>
+<p>Untuk memvisualisaikan grafik dan koordinat dengan code kita perlu yang namanya library. Salah satu library python yang cukup populer yang banyak digunakan untuk visualisasi data adalah Matplotlib. berikut adalah sekilas tentang Matplotlib</p>
+</section>
+<section id="matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
+<p>Matplotlib sendiri adalah suatu library atau package yang paling populer di bahasa python untuk melakukan visualisasi data seperti membuat plot grafik untuk satu sumbu atau lebih. Setiap sumbu memiliki sumbu horizontal (x) dan sumbu vertikal (y). Matplotlib disusun oleh John Hunter di tahun 2002, dan di desain agar dapat digunakan selayaknya menggunakan MATLAB. Matplotlib dapat digunakan untuk memvisualisasikan data secara 2D maupun 3D dan menghasilkan gambar berkualitas yang bahkan dapat kamu simpan dalam berbagai format gambar, seperti JPEG dan PNG. Jika, kamu menggunakan python script maka kamu perlu menginstall matplotlib terlebih dahulu. Tapi, jika kebetulan kamu menggunakan python melalui anaconda meliputi spyder dan jupyter notebook maka, kamu tidak perlu menginstalnya lagi karena sudah menjadi built-in library.</p>
+<p>##Tranformasi Linier dengan Refleksi
+Refleksi atau pencerminan pada tranformasi linear adalah adalah salah satu metode tranformasi linear yang digunakan untuk mencerminkan suatu Node dengan fungsi matrix. Berikut adalah sifat-sifat Refleksi:</p>
+<ol class="arabic simple">
+<li><p>Objek yang direfleksikan tidak mengalami perubahan benntuk dan ukuran</p></li>
+<li><p>Jarak objek dari cermin (sumbu X/Y) adalah sama dengan jarak bayangan dengan cermin tersbut.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Untuk bisa dicerminkan ke sumbu X fungsi matrix harus seperti berikut:
+<span class="math notranslate nohighlight">\(
+\begin{align*}
+f(Matrix) =
+\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; -1\\
+\end{bmatrix}
+\end{align*}
+\)</span></p></li>
+<li><p>Untuk bisa dicerminkan ke sumbu Y fungsi matrix harus seperti berikut:
+<span class="math notranslate nohighlight">\(
+\begin{align*}
+f(Matrix) =
+\begin{bmatrix}
+-1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}
+\end{align*}
+\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Versi Matplotlib = </span><span class="si">{</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Versi Matplotlib = 3.7.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Membuat matriks asli</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+
+<span class="c1"># Membuat matriks transformasi untuk refleksi terhadap sumbu x</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1"># Melakukan transformasi linear dengan metode refleksi</span>
+<span class="n">A_transformed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># Menggambar plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot matriks asli</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot matriks yang telah ditransformasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A_transformed</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">A_transformed</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Transformed&#39;</span><span class="p">)</span>
+
+<span class="c1"># Menambahkan garis sumbu x dan y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Menambahkan legenda</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Menampilkan plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2d3682ae0cba2f9c87d5da31d8c7f683a20da890d951974726cef7cc4f034861.png" src="_images/2d3682ae0cba2f9c87d5da31d8c7f683a20da890d951974726cef7cc4f034861.png" />
+</div>
+</div>
+</section>
+<section id="tranformasi-linier-rotasi">
+<h2>Tranformasi Linier Rotasi<a class="headerlink" href="#tranformasi-linier-rotasi" title="Link to this heading">#</a></h2>
+<p>Dalam aljabar linear, matriks rotasi adalah matriks transformasi yang digunakan untuk melakukan rotasi dalam ruang Euclidean 2 dimensi. Misalnya, dengan menggunakan konvensi di bawah ini, matriks
+<span class="math notranslate nohighlight">\(
+\begin{align*}
+R =
+\begin{bmatrix}
+cos\theta &amp;-sin\theta \\
+sin\theta &amp; cos\theta\\
+\end{bmatrix}
+\end{align*}
+\)</span>
+memutar titik-titik pada bidang xy berlawanan arah jarum jam melalui θ terhadap sumbu x terhadap titik asal sistem koordinat kartesius dua dimensi. Untuk melakukan rotasi pada titik bidang dengan koordinat standar v = (x, y), harus ditulis sebagai vektor kolom, dan dikalikan dengan matriks R:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Definisikan array a (vektor yang akan dirotasi)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+
+<span class="c1"># Definisikan sudut rotasi (dalam derajat) dan konversi ke radian</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mi">90</span>  <span class="c1"># Sudut rotasi dalam derajat (90 derajat)</span>
+<span class="n">theta_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>  <span class="c1"># Konversi ke radian</span>
+
+<span class="c1"># Definisikan matriks rotasi</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_rad</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_rad</span><span class="p">)],</span>
+              <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_rad</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_rad</span><span class="p">)]])</span>
+
+<span class="c1"># Hitung hasil rotasi</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">@</span> <span class="n">R</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hasil rotasi matriks a dengan sudut&quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="s2">&quot;derajat adalah:&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="c1"># Output: Hasil rotasi matriks a dengan sudut 45 derajat adalah: [[0. 5.65685425]]</span>
+
+<span class="c1"># Visualisasi transformasi vektor sebelum dan sesudah rotasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Vektor asli</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vektor asli (a)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Vektor setelah rotasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vektor rotasi (c)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pengaturan plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;label x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;label y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Visualisasi Rotasi Vektor oleh Matriks&#39;</span><span class="p">)</span>
+
+<span class="c1"># Refleksi visualisasi:</span>
+<span class="c1"># Vektor asli (a) = [4, 4] ditampilkan dalam warna biru.</span>
+<span class="c1"># Vektor setelah rotasi (c) = hasil rotasi a sebesar 45 derajat ditampilkan dalam warna merah.</span>
+<span class="c1"># Rotasi ini mengubah arah vektor a sesuai dengan sudut yang diberikan.</span>
+
+<span class="c1"># Menampilkan grafik</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil rotasi matriks a dengan sudut 90 derajat adalah: [[ 6. -2.]]
+</pre></div>
+</div>
+<img alt="_images/6e29fadae6e7ef5a07054ab01e4f0b1a296b1ae9ca66007e52853776f6235ee7.png" src="_images/6e29fadae6e7ef5a07054ab01e4f0b1a296b1ae9ca66007e52853776f6235ee7.png" />
+</div>
+</div>
+<p>##Tranformasi Linier Scalling
+Transformasi linear dengan metode scaling pada matriks adalah proses mengubah matriks asli dengan cara mengalikan setiap elemen matriks tersebut dengan suatu bilangan skalar. Dalam konteks grafis komputer, scaling adalah proses mengubah ukuran objek. Dalam konteks visual, metode scaling akan mengubah ukuran objek tanpa mengubah bentuk aslinya. Misalnya, jika kita memiliki titik pada koordinat (2, 3) dan kita melakukan scaling 2x pada sumbu x dan 3x pada sumbu y, maka titik tersebut akan berpindah ke koordinat (4, 9).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Membuat matriks asli</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+
+<span class="c1"># Membuat matriks transformasi untuk scaling</span>
+<span class="c1"># Misalnya kita ingin melakukan scaling 2x pada sumbu x dan 3x pada sumbu y</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+
+<span class="c1"># Melakukan transformasi linear dengan metode scaling</span>
+<span class="n">A_transformed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># Menggambar plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot matriks asli</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot matriks yang telah ditransformasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A_transformed</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">A_transformed</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Transformed&#39;</span><span class="p">)</span>
+
+<span class="c1"># Menambahkan legenda</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Menampilkan plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b1a63db246ff781a725505c8b08048ace0d07142916a92aa21497481c11e90d3.png" src="_images/b1a63db246ff781a725505c8b08048ace0d07142916a92aa21497481c11e90d3.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="det_Matrix_Haikal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Determinant Matrix</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tranformasi Linier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linier-dalam-matriks">Transformasi Linier dalam Matriks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tranformasi-linier-rotasi">Tranformasi Linier Rotasi</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
